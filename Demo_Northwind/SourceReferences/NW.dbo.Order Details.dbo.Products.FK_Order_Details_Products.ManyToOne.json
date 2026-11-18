@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.Order Details.dbo.Products.FK_Order_Details_Products.ManyToOne",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 4,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "Order Details",
+  "source_Schema2": "dbo",
+  "source_Name2": "Products",
+  "description": "FK_Order_Details_Products",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.Order Details.dbo.Products.FK_Order_Details_Products.ProductID.ProductID",
+      "column_Name1": "ProductID",
+      "column_Name2": "ProductID"
+    }
+  ],
+  "use_existing": 0
+}

@@ -1,0 +1,23 @@
+{
+  "hashkey": "IMP.EmployeeTerritories",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.EmployeeTerritories",
+  "source_hash": "NW.dbo.EmployeeTerritories",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.EmployeeTerritories.EmployeeID.EmployeeID",
+      "hashkeyParent": "IMP.EmployeeTerritories",
+      "source_column_name": "EmployeeID",
+      "table_column_name": "EmployeeID"
+    },
+    {
+      "hashkey": "IMP.EmployeeTerritories.TerritoryID.TerritoryID",
+      "hashkeyParent": "IMP.EmployeeTerritories",
+      "source_column_name": "TerritoryID",
+      "table_column_name": "TerritoryID"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "hashkey": "HierarchyToString",
+  "name": "HierarchyToString",
+  "checkStatement": "SrcType IN ('hierarchyid')",
+  "transStatement": "'CONVERT(varchar(255), ' + Column_Name + ')'",
+  "use_existing": 0
+}

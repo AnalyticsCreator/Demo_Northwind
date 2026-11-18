@@ -1,0 +1,135 @@
+{
+  "hashkey": "NW.dbo.Suppliers",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "Suppliers",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.Suppliers.Address",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "Address",
+      "typeID": 120,
+      "character_Maximum_Length": 60,
+      "is_Nullable": true,
+      "orderNr": 5,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.City",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "City",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 6,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.CompanyName",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "CompanyName",
+      "typeID": 120,
+      "character_Maximum_Length": 40,
+      "is_Nullable": false,
+      "orderNr": 2,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.ContactName",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "ContactName",
+      "typeID": 120,
+      "character_Maximum_Length": 30,
+      "is_Nullable": true,
+      "orderNr": 3,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.ContactTitle",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "ContactTitle",
+      "typeID": 120,
+      "character_Maximum_Length": 30,
+      "is_Nullable": true,
+      "orderNr": 4,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.Country",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "Country",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 9,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.Fax",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "Fax",
+      "typeID": 120,
+      "character_Maximum_Length": 24,
+      "is_Nullable": true,
+      "orderNr": 11,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.HomePage",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "HomePage",
+      "typeID": 118,
+      "is_Nullable": true,
+      "orderNr": 12,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.Phone",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "Phone",
+      "typeID": 120,
+      "character_Maximum_Length": 24,
+      "is_Nullable": true,
+      "orderNr": 10,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.PostalCode",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "PostalCode",
+      "typeID": 120,
+      "character_Maximum_Length": 10,
+      "is_Nullable": true,
+      "orderNr": 8,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.Region",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "Region",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 7,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Suppliers.SupplierID",
+      "hashkeyParent": "NW.dbo.Suppliers",
+      "column_Name": "SupplierID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

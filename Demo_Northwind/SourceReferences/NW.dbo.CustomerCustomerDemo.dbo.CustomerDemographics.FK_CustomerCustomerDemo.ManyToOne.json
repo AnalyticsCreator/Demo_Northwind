@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.CustomerCustomerDemo.dbo.CustomerDemographics.FK_CustomerCustomerDemo.ManyToOne",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 4,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "CustomerCustomerDemo",
+  "source_Schema2": "dbo",
+  "source_Name2": "CustomerDemographics",
+  "description": "FK_CustomerCustomerDemo",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.CustomerCustomerDemo.dbo.CustomerDemographics.FK_CustomerCustomerDemo.CustomerTypeID.CustomerTypeID",
+      "column_Name1": "CustomerTypeID",
+      "column_Name2": "CustomerTypeID"
+    }
+  ],
+  "use_existing": 0
+}

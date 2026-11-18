@@ -1,0 +1,7 @@
+{
+  "hashkey": "BinaryToStr",
+  "name": "BinaryToStr",
+  "checkStatement": "SrcType IN ('binary', 'varbinary')",
+  "transStatement": "'CONVERT(varchar(' + CASE Character_Maximum_Length WHEN -1 THEN 'max' ELSE CONVERT(varchar(8), Character_Maximum_Length * 2) END + '), ' + Column_Name + ', 2)'",
+  "use_existing": 0
+}

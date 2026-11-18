@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.Shippers.dbo.Orders.FK_Orders_Shippers.OneToMany",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "Shippers",
+  "source_Schema2": "dbo",
+  "source_Name2": "Orders",
+  "description": "FK_Orders_Shippers",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.Shippers.dbo.Orders.FK_Orders_Shippers.ShipperID.ShipVia",
+      "column_Name1": "ShipperID",
+      "column_Name2": "ShipVia"
+    }
+  ],
+  "use_existing": 0
+}

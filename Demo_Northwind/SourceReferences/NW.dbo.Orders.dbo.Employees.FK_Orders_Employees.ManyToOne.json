@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.Orders.dbo.Employees.FK_Orders_Employees.ManyToOne",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 4,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "Orders",
+  "source_Schema2": "dbo",
+  "source_Name2": "Employees",
+  "description": "FK_Orders_Employees",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.Orders.dbo.Employees.FK_Orders_Employees.EmployeeID.EmployeeID",
+      "column_Name1": "EmployeeID",
+      "column_Name2": "EmployeeID"
+    }
+  ],
+  "use_existing": 0
+}

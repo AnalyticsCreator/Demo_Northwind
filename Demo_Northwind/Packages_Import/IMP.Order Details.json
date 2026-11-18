@@ -1,0 +1,41 @@
+{
+  "hashkey": "IMP.Order Details",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.Order Details",
+  "source_hash": "NW.dbo.Order Details",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Order Details.Discount.Discount",
+      "hashkeyParent": "IMP.Order Details",
+      "source_column_name": "Discount",
+      "table_column_name": "Discount"
+    },
+    {
+      "hashkey": "IMP.Order Details.OrderID.OrderID",
+      "hashkeyParent": "IMP.Order Details",
+      "source_column_name": "OrderID",
+      "table_column_name": "OrderID"
+    },
+    {
+      "hashkey": "IMP.Order Details.ProductID.ProductID",
+      "hashkeyParent": "IMP.Order Details",
+      "source_column_name": "ProductID",
+      "table_column_name": "ProductID"
+    },
+    {
+      "hashkey": "IMP.Order Details.Quantity.Quantity",
+      "hashkeyParent": "IMP.Order Details",
+      "source_column_name": "Quantity",
+      "table_column_name": "Quantity"
+    },
+    {
+      "hashkey": "IMP.Order Details.UnitPrice.UnitPrice",
+      "hashkeyParent": "IMP.Order Details",
+      "source_column_name": "UnitPrice",
+      "table_column_name": "UnitPrice"
+    }
+  ]
+}

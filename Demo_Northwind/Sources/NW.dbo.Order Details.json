@@ -1,0 +1,63 @@
+{
+  "hashkey": "NW.dbo.Order Details",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "Order Details",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.Order Details.Discount",
+      "hashkeyParent": "NW.dbo.Order Details",
+      "column_Name": "Discount",
+      "typeID": 121,
+      "is_Nullable": false,
+      "orderNr": 5,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Order Details.OrderID",
+      "hashkeyParent": "NW.dbo.Order Details",
+      "column_Name": "OrderID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Order Details.ProductID",
+      "hashkeyParent": "NW.dbo.Order Details",
+      "column_Name": "ProductID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 2,
+      "orderNr": 2,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Order Details.Quantity",
+      "hashkeyParent": "NW.dbo.Order Details",
+      "column_Name": "Quantity",
+      "typeID": 124,
+      "is_Nullable": false,
+      "orderNr": 4,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Order Details.UnitPrice",
+      "hashkeyParent": "NW.dbo.Order Details",
+      "column_Name": "UnitPrice",
+      "typeID": 116,
+      "is_Nullable": false,
+      "orderNr": 3,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

@@ -1,0 +1,21 @@
+{
+  "hashkey": "STG.Categories.STG.Products.FK_Products_Categories_2778051762916059631.OneToMany",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "table1_hash": "STG.Categories",
+  "table2_hash": "STG.Products",
+  "description": "FK_Products_Categories_2778051762916059631",
+  "parentDescription": "FK_Products_Categories",
+  "autoCreated": true,
+  "inactive": false,
+  "inheritance": 0,
+  "use_existing": 0,
+  "iTableReferenceColumns": [
+    {
+      "hashkey": "STG.Categories.STG.Products.FK_Products_Categories_2778051762916059631.CategoryID.CategoryID",
+      "hashkeyParent": "STG.Categories.STG.Products.FK_Products_Categories_2778051762916059631.OneToMany",
+      "column_Name1": "CategoryID",
+      "column_Name2": "CategoryID"
+    }
+  ]
+}

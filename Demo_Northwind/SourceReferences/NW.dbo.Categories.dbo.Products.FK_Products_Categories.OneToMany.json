@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.Categories.dbo.Products.FK_Products_Categories.OneToMany",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "Categories",
+  "source_Schema2": "dbo",
+  "source_Name2": "Products",
+  "description": "FK_Products_Categories",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.Categories.dbo.Products.FK_Products_Categories.CategoryID.CategoryID",
+      "column_Name1": "CategoryID",
+      "column_Name2": "CategoryID"
+    }
+  ],
+  "use_existing": 0
+}

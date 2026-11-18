@@ -1,0 +1,17 @@
+{
+  "hashkey": ".Recompile all transformations",
+  "name": "Recompile all transformations",
+  "description": "Recompile all regular transformations in repository",
+  "statement": "/*\r\nScript to compile all transformations h<h<h<\r\n*/\r\n\r\nDECLARE\r\n\t@TransformationID int = -1,\r\n\t@DB sysname = 'dwh_' + RIGHT(DB_NAME(), LEN(DB_NAME()) - 5)\r\n\r\nWHILE 1=1\r\nBEGIN\r\n\tSELECT TOP 1\r\n\t\t@TransformationID = TransformationID\r\n\tFROM\r\n\t\tCFG.TRANSFORMATIONS\r\n\tWHERE\r\n\t\tTransTypeID IN (1, 7) AND --regular or union \r\n\t\tTransformationID > @TransformationID\r\n\tORDER BY\r\n\t\tTransformationID\r\n\r\n\tIF @@ROWCOUNT = 0 BREAK\r\n\r\n\tEXEC CFG.CREATE_TRANS_VIEW @TransformationID, @DB, :1\r\nEND",
+  "iObjectScriptParams": [
+    {
+      "hashkey": ".Recompile all transformations.1",
+      "hashkeyParent": ".Recompile all transformations",
+      "seqNr": 1,
+      "parameter": "Mode",
+      "defaultValue": "1",
+      "use_existing": 0
+    }
+  ],
+  "use_existing": 0
+}

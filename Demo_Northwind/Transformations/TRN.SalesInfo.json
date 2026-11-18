@@ -1,0 +1,165 @@
+{
+  "hashkey": "TRN.SalesInfo",
+  "hashkeyParent": "TRN",
+  "transTypeID": 1,
+  "schema_Name": "TRN",
+  "transformation_Name": "SalesInfo",
+  "createDummyEntry": false,
+  "transHistTypeID": 4,
+  "viewDefinition": "CREATE VIEW [TRN].[SalesInfo] AS\r\nSELECT\r\n\t[Year] = YEAR([T2].[OrderDate]),\r\n\t[Month] = MONTH([T2].[OrderDate]),\r\n\t[CustomerID] = ISNULL([T2].[CustomerID], 'N.A.'),\r\n\t[ProductID] = ISNULL([T1].[ProductID], 0),\r\n\t[Total] = SUM(T1.Quantity*T1.UnitPrice*(1-T1.Discount))\r\nFROM\r\n\t[STG].[Order Details] [T1] (NOLOCK)\r\n\tLEFT JOIN [STG].[Orders] [T2] (NOLOCK) ON \r\n\t\t[T2].[OrderID] = T1.[OrderID]\r\nWHERE\r\n\t[T1].[DAT_BIS_HIST] = '99991231' AND\r\n\t1 = 1\r\nGROUP BY\r\n\t YEAR([T2].[OrderDate]),\r\n\tMONTH([T2].[OrderDate]),\r\n\tISNULL([T2].[CustomerID], 'N.A.'),\r\n\tISNULL([T1].[ProductID], 0)",
+  "table_hash": "TRN.SalesInfo",
+  "isCreated": true,
+  "isFact": false,
+  "createResultTable": false,
+  "isDistinct": false,
+  "scriptTran_NoDependencies": false,
+  "use_existing": 0,
+  "iTransformationTables": [
+    {
+      "hashkey": "TRN.SalesInfo.1",
+      "hashkeyParent": "TRN.SalesInfo",
+      "sequenceNumber": 1,
+      "table_hash": "STG.Order Details",
+      "tableAlias": "T1",
+      "joinHistTypeID": 1,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "TRN.SalesInfo.2",
+      "hashkeyParent": "TRN.SalesInfo",
+      "sequenceNumber": 2,
+      "table_hash": "STG.Orders",
+      "tableAlias": "T2",
+      "joinHistTypeID": 1,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    }
+  ],
+  "iTransformationColumns": [
+    {
+      "hashkey": "TRN.SalesInfo.CustomerID.2",
+      "hashkeyParent": "TRN.SalesInfo",
+      "columnName": "CustomerID",
+      "transTable_SequenceNumber": 2,
+      "column_ColumnName": "CustomerID",
+      "isAggregate": false,
+      "sequenceNumber": 3
+    },
+    {
+      "hashkey": "TRN.SalesInfo.Month.2",
+      "hashkeyParent": "TRN.SalesInfo",
+      "columnName": "Month",
+      "transTable_SequenceNumber": 2,
+      "column_ColumnName": "OrderDate",
+      "statement": "MONTH(@this)",
+      "isAggregate": false,
+      "description": "MONTH([T2].[OrderDate])",
+      "sequenceNumber": 2
+    },
+    {
+      "hashkey": "TRN.SalesInfo.ProductID.1",
+      "hashkeyParent": "TRN.SalesInfo",
+      "columnName": "ProductID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ProductID",
+      "isAggregate": false,
+      "sequenceNumber": 4
+    },
+    {
+      "hashkey": "TRN.SalesInfo.Total",
+      "hashkeyParent": "TRN.SalesInfo",
+      "columnName": "Total",
+      "statement": "SUM(T1.Quantity*T1.UnitPrice*(1-T1.Discount))",
+      "isAggregate": true,
+      "description": "T1.Quantity*T1.UnitPrice*(1-T1.Discount)",
+      "sequenceNumber": 5
+    },
+    {
+      "hashkey": "TRN.SalesInfo.Year.2",
+      "hashkeyParent": "TRN.SalesInfo",
+      "columnName": "Year",
+      "transTable_SequenceNumber": 2,
+      "column_ColumnName": "OrderDate",
+      "statement": "YEAR(@this)",
+      "isAggregate": false,
+      "description": "YEAR([T2].[OrderDate])",
+      "sequenceNumber": 1
+    }
+  ],
+  "iTransformationReferences": [
+    {
+      "hashkey": "TRN.SalesInfo.2.1",
+      "hashkeyParent": "TRN.SalesInfo",
+      "transTable1_SequenceNumber": 2,
+      "transTable2_SequenceNumber": 1,
+      "tableRef_Table1_hash": "STG.Orders",
+      "tableRef_Table2_hash": "STG.Order Details",
+      "tableRef_Description": "FK_Order_Details_Orders_3654271849561856834"
+    }
+  ],
+  "iTransformationStandards": [
+    {
+      "hashkey": "TRN.SalesInfo.Anonymization",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "Anonymization"
+    },
+    {
+      "hashkey": "TRN.SalesInfo.BinaryToStr",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "BinaryToStr"
+    },
+    {
+      "hashkey": "TRN.SalesInfo.HierarchyToString",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "HierarchyToString"
+    },
+    {
+      "hashkey": "TRN.SalesInfo.NumberNULLToZero",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "NumberNULLToZero"
+    },
+    {
+      "hashkey": "TRN.SalesInfo.StringMaxTo8000",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "StringMaxTo8000"
+    },
+    {
+      "hashkey": "TRN.SalesInfo.StringNULLToNA",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "StringNULLToNA"
+    },
+    {
+      "hashkey": "TRN.SalesInfo.TimeToDatetime",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "TimeToDatetime"
+    },
+    {
+      "hashkey": "TRN.SalesInfo.Trim",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "Trim"
+    },
+    {
+      "hashkey": "TRN.SalesInfo.XmlToString",
+      "hashkeyParent": "TRN.SalesInfo",
+      "useWithVault": true,
+      "preTrans_hash": "XmlToString"
+    }
+  ],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

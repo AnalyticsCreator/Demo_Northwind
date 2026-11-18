@@ -1,0 +1,54 @@
+{
+  "hashkey": "NW.dbo.Categories",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "Categories",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.Categories.CategoryID",
+      "hashkeyParent": "NW.dbo.Categories",
+      "column_Name": "CategoryID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Categories.CategoryName",
+      "hashkeyParent": "NW.dbo.Categories",
+      "column_Name": "CategoryName",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": false,
+      "orderNr": 2,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Categories.Description",
+      "hashkeyParent": "NW.dbo.Categories",
+      "column_Name": "Description",
+      "typeID": 118,
+      "is_Nullable": true,
+      "orderNr": 3,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Categories.Picture",
+      "hashkeyParent": "NW.dbo.Categories",
+      "column_Name": "Picture",
+      "typeID": 114,
+      "is_Nullable": true,
+      "orderNr": 4,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

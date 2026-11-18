@@ -1,0 +1,8 @@
+{
+  "hashkey": ".Update descriptions",
+  "name": "Update descriptions",
+  "description": "Update all object descriptions in repository",
+  "statement": "/*\r\nUpdate all object descriptions in repository\r\n*/\r\n\r\nEXEC CFG.UPDATE_DESCRIPTIONS",
+  "iObjectScriptParams": [],
+  "use_existing": 0
+}

@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_Order Details",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_Order Details",
+  "createDummyEntry": false,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_Order Details] AS\r\nSELECT\r\n\tT1.[SATZ_ID],\r\n\tT1.[DAT_VON_HIST],\r\n\tT1.[DAT_BIS_HIST],\r\n\tT1.[UnitPrice],\r\n\tT1.[Quantity],\r\n\tT1.[Discount],\r\n\tT1.[OrderID],\r\n\tT1.[ProductID]\r\nFROM\r\n\t[DWH].[DIM_Order Details] T1",
+  "table_hash": "STAR.DIM_Order Details",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_Order Details",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

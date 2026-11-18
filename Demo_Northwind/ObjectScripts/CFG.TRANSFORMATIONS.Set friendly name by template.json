@@ -1,0 +1,17 @@
+{
+  "hashkey": "CFG.TRANSFORMATIONS.Set friendly name by template",
+  "table": "CFG.TRANSFORMATIONS",
+  "name": "Set friendly name by template",
+  "description": "Copy column friendly names from another transformation",
+  "statement": "/*\r\nCopy column friendly names from another transformation\r\n*/\r\n\r\nUPDATE\r\n\tC1\r\nSET\r\n\tFriendlyName = C.FriendlyName,\r\n\tToOLAP = C.ToOLAP\r\nFROM\r\n\t[CFG].[TRANSFORMATIONS] TR\r\n\tINNER JOIN CFG.COLUMNS C ON\r\n\t\tC.TableID = TR.TableID\r\n\tINNER JOIN [CFG].[TRANSFORMATIONS] TR1 ON\r\n\t\tTR1.TransformationID = :1\r\n\tINNER JOIN CFG.COLUMNS C1 ON\r\n\t\tC1.TableID = TR1.TableID AND\r\n\t\tC1.Column_Name = C.Column_Name\r\nWHERE\r\n\tTR.[TransformationID] = :2",
+  "iObjectScriptParams": [
+    {
+      "hashkey": "CFG.TRANSFORMATIONS.Set friendly name by template.2",
+      "hashkeyParent": "CFG.TRANSFORMATIONS.Set friendly name by template",
+      "seqNr": 2,
+      "parameter": "TransformationID",
+      "use_existing": 0
+    }
+  ],
+  "use_existing": 0
+}

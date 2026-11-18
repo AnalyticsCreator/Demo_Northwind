@@ -1,0 +1,6 @@
+{
+  "hashkey": "DWHWIZARD_IMPPACKAGENAME",
+  "param_Name": "DWHWIZARD_IMPPACKAGENAME",
+  "param_Value": "IMP_{CONNECTOR_NAME}{NR}",
+  "use_existing": 0
+}

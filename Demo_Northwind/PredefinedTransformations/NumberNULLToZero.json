@@ -1,0 +1,7 @@
+{
+  "hashkey": "NumberNULLToZero",
+  "name": "NumberNULLToZero",
+  "checkStatement": "SrcType IN ('int', 'smallint', 'tinyint', 'bit', 'decimal', 'numeric', 'real', 'money')",
+  "transStatement": "'ISNULL(' + Column_Name + ', 0)'",
+  "use_existing": 0
+}

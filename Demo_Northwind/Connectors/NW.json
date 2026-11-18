@@ -1,0 +1,9 @@
+{
+  "hashkey": "NW",
+  "connectorName": "NW",
+  "connectionString": "PROVIDER=MSOLEDBSQL;Data Source=localhost;Initial Catalog=Northwind;Integrated Security=SSPI;",
+  "connectorTypeID": 1,
+  "quotedIdentifier": "\"",
+  "doNotAddToSSISConfiguration": false,
+  "use_existing": 0
+}

@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_CustomerCustomerDemo",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_CustomerCustomerDemo",
+  "createDummyEntry": false,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_CustomerCustomerDemo] AS\r\nSELECT\r\n\tT1.[SATZ_ID],\r\n\tT1.[DAT_VON_HIST],\r\n\tT1.[DAT_BIS_HIST],\r\n\tT1.[CustomerID],\r\n\tT1.[CustomerTypeID]\r\nFROM\r\n\t[DWH].[DIM_CustomerCustomerDemo] T1",
+  "table_hash": "STAR.DIM_CustomerCustomerDemo",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_CustomerCustomerDemo",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

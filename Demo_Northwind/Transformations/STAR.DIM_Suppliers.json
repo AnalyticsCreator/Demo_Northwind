@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_Suppliers",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_Suppliers",
+  "createDummyEntry": false,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_Suppliers] AS\r\nSELECT\r\n\tT1.[SATZ_ID],\r\n\tT1.[DAT_VON_HIST],\r\n\tT1.[DAT_BIS_HIST],\r\n\tT1.[CompanyName],\r\n\tT1.[ContactName],\r\n\tT1.[ContactTitle],\r\n\tT1.[Address],\r\n\tT1.[City],\r\n\tT1.[Region],\r\n\tT1.[PostalCode],\r\n\tT1.[Country],\r\n\tT1.[Phone],\r\n\tT1.[Fax],\r\n\tT1.[HomePage],\r\n\tT1.[SupplierID]\r\nFROM\r\n\t[DWH].[DIM_Suppliers] T1",
+  "table_hash": "STAR.DIM_Suppliers",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_Suppliers",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

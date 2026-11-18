@@ -1,0 +1,6 @@
+{
+  "hashkey": "TRANSFORMATION_CALENDAR_FACT_PATTERN",
+  "param_Name": "TRANSFORMATION_CALENDAR_FACT_PATTERN",
+  "param_Value": "FK_{TableName}_{ColumnName}",
+  "use_existing": 0
+}

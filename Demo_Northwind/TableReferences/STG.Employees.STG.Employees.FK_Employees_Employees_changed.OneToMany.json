@@ -1,0 +1,21 @@
+{
+  "hashkey": "STG.Employees.STG.Employees.FK_Employees_Employees_changed.OneToMany",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "table1_hash": "STG.Employees",
+  "table2_hash": "STG.Employees",
+  "description": "FK_Employees_Employees_changed",
+  "parentDescription": "FK_Employees_Employees",
+  "autoCreated": true,
+  "inactive": false,
+  "inheritance": 0,
+  "use_existing": 0,
+  "iTableReferenceColumns": [
+    {
+      "hashkey": "STG.Employees.STG.Employees.FK_Employees_Employees_changed.EmployeeID.ReportsTo",
+      "hashkeyParent": "STG.Employees.STG.Employees.FK_Employees_Employees_changed.OneToMany",
+      "column_Name1": "EmployeeID",
+      "column_Name2": "ReportsTo"
+    }
+  ]
+}

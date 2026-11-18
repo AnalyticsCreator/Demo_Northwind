@@ -1,0 +1,427 @@
+{
+  "hashkey": "DWH.FACT_Order Details",
+  "hashkeyParent": "DWH",
+  "transTypeID": 1,
+  "schema_Name": "DWH",
+  "transformation_Name": "FACT_Order Details",
+  "createDummyEntry": false,
+  "transHistTypeID": 3,
+  "viewDefinition": "CREATE VIEW [DWH].[FACT_Order Details] AS\r\nSELECT\r\n\t[FK_SNAPSHOT] = [SNAPSHOTS].[SnapshotID],\r\n\t[FK_Order Details] = ISNULL([T1].[SATZ_ID], 0),\r\n\t[FK_Orders] = ISNULL([T2].[SATZ_ID], 0),\r\n\t[FK_Customers] = ISNULL([T3].[SATZ_ID], 0),\r\n\t[FK_Employees] = ISNULL([T4].[SATZ_ID], 0),\r\n\t[FK_ReportsTo] = ISNULL([T5].[SATZ_ID], 0),\r\n\t[FK_Shippers] = ISNULL([T6].[SATZ_ID], 0),\r\n\t[FK_Products] = ISNULL([T7].[SATZ_ID], 0),\r\n\t[FK_Categories] = ISNULL([T8].[SATZ_ID], 0),\r\n\t[FK_Suppliers] = ISNULL([T9].[SATZ_ID], 0),\r\n\t[FK_OrderDate] = CASE\r\n    WHEN [T2].[OrderDate] < '19800101' THEN 0 \r\n    WHEN [T2].[OrderDate] > '20401231' THEN CONVERT(bigint, DATEDIFF(DD, '19800101',  '20401231') + 1)\r\n    ELSE CONVERT(bigint, ISNULL(DATEDIFF(DD, '19800101', CONVERT(date, [T2].[OrderDate])) + 1, 0))\r\nEND,\r\n\t[FK_RequiredDate] = CASE\r\n    WHEN [T2].[RequiredDate] < '19800101' THEN 0 \r\n    WHEN [T2].[RequiredDate] > '20401231' THEN CONVERT(bigint, DATEDIFF(DD, '19800101',  '20401231') + 1)\r\n    ELSE CONVERT(bigint, ISNULL(DATEDIFF(DD, '19800101', CONVERT(date, [T2].[RequiredDate])) + 1, 0))\r\nEND,\r\n\t[FK_ShippedDate] = CASE\r\n    WHEN [T2].[ShippedDate] < '19800101' THEN 0 \r\n    WHEN [T2].[ShippedDate] > '20401231' THEN CONVERT(bigint, DATEDIFF(DD, '19800101',  '20401231') + 1)\r\n    ELSE CONVERT(bigint, ISNULL(DATEDIFF(DD, '19800101', CONVERT(date, [T2].[ShippedDate])) + 1, 0))\r\nEND,\r\n\t[UnitPrice] = [T1].[UnitPrice],\r\n\t[Quantity] = [T1].[Quantity],\r\n\t[Discount] = [T1].[Discount],\r\n\t[Total] = T1.UnitPrice*T1.Quantity*(1-T1.Discount)\r\nFROM\r\n\t[CFG].[SNAPSHOTS] [SNAPSHOTS] (NOLOCK)\r\n\tLEFT JOIN [STG].[Order Details] [T1] (NOLOCK) ON \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T1].[DAT_VON_HIST] AND [T1].[DAT_BIS_HIST]\r\n\tLEFT JOIN [STG].[Orders] [T2] (NOLOCK) ON \r\n\t\t[T2].[OrderID] = T1.[OrderID] AND \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T2].[DAT_VON_HIST] AND [T2].[DAT_BIS_HIST]\r\n\tLEFT JOIN [STG].[Customers] [T3] (NOLOCK) ON \r\n\t\t[T3].[CustomerID] = T2.[CustomerID] AND \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T3].[DAT_VON_HIST] AND [T3].[DAT_BIS_HIST]\r\n\tLEFT JOIN [STG].[Employees] [T4] (NOLOCK) ON \r\n\t\t[T4].[EmployeeID] = T2.[EmployeeID] AND \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T4].[DAT_VON_HIST] AND [T4].[DAT_BIS_HIST]\r\n\tLEFT JOIN [STG].[Employees] [T5] (NOLOCK) ON \r\n\t\t[T5].[EmployeeID] = T4.[ReportsTo] AND \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T5].[DAT_VON_HIST] AND [T5].[DAT_BIS_HIST]\r\n\tLEFT JOIN [STG].[Shippers] [T6] (NOLOCK) ON \r\n\t\t[T6].[ShipperID] = T2.[ShipVia] AND \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T6].[DAT_VON_HIST] AND [T6].[DAT_BIS_HIST]\r\n\tLEFT JOIN [STG].[Products] [T7] (NOLOCK) ON \r\n\t\t[T7].[ProductID] = T1.[ProductID] AND \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T7].[DAT_VON_HIST] AND [T7].[DAT_BIS_HIST]\r\n\tLEFT JOIN [STG].[Categories] [T8] (NOLOCK) ON \r\n\t\t[T8].[CategoryID] = T7.[CategoryID] AND \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T8].[DAT_VON_HIST] AND [T8].[DAT_BIS_HIST]\r\n\tLEFT JOIN [STG].[Suppliers] [T9] (NOLOCK) ON \r\n\t\t[T9].[SupplierID] = T7.[SupplierID] AND \r\n\t\t[SNAPSHOTS].[Date] BETWEEN [T9].[DAT_VON_HIST] AND [T9].[DAT_BIS_HIST]\r\nWHERE\r\n\tSNAPSHOTS.SnapshotID IN (1)",
+  "persistTable_Name": "FACT_Order Details_T",
+  "persistPackage_Name": "PERS1",
+  "table_hash": "DWH.FACT_Order Details",
+  "persistTable_hash": "DWH.FACT_Order Details_T",
+  "persistPackage_hash": "PERS1",
+  "isCreated": true,
+  "isFact": true,
+  "createResultTable": false,
+  "isDistinct": false,
+  "scriptTran_NoDependencies": false,
+  "use_existing": 0,
+  "iTransformationTables": [
+    {
+      "hashkey": "DWH.FACT_Order Details.1",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 1,
+      "table_hash": "STG.Order Details",
+      "tableAlias": "T1",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.2",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 2,
+      "table_hash": "STG.Orders",
+      "tableAlias": "T2",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.3",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 3,
+      "table_hash": "STG.Customers",
+      "tableAlias": "T3",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.4",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 4,
+      "table_hash": "STG.Employees",
+      "tableAlias": "T4",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.5",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 5,
+      "table_hash": "STG.Employees",
+      "tableAlias": "T5",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.6",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 6,
+      "table_hash": "STG.Shippers",
+      "tableAlias": "T6",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.7",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 7,
+      "table_hash": "STG.Products",
+      "tableAlias": "T7",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.8",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 8,
+      "table_hash": "STG.Categories",
+      "tableAlias": "T8",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.9",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "sequenceNumber": 9,
+      "table_hash": "STG.Suppliers",
+      "tableAlias": "T9",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    }
+  ],
+  "iTransformationColumns": [
+    {
+      "hashkey": "DWH.FACT_Order Details.Discount.1",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "Discount",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Discount",
+      "isAggregate": false,
+      "sequenceNumber": 15
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_Categories.8",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_Categories",
+      "transTable_SequenceNumber": 8,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T8].[SATZ_ID], 0)",
+      "sequenceNumber": 8,
+      "friendlyName": "Categories"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_Customers.3",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_Customers",
+      "transTable_SequenceNumber": 3,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T3].[SATZ_ID], 0)",
+      "sequenceNumber": 3,
+      "friendlyName": "Customers"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_Employees.4",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_Employees",
+      "transTable_SequenceNumber": 4,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T4].[SATZ_ID], 0)",
+      "sequenceNumber": 4,
+      "friendlyName": "Employees"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_Order Details.1",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_Order Details",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T1].[SATZ_ID], 0)",
+      "sequenceNumber": 1,
+      "friendlyName": "Order Details"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_OrderDate.2",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_OrderDate",
+      "transTable_SequenceNumber": 2,
+      "column_ColumnName": "OrderDate",
+      "statement": "@Date2ID([T2].[OrderDate])",
+      "isAggregate": false,
+      "description": "@Date2ID([T2].[OrderDate])",
+      "sequenceNumber": 10
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_Orders.2",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_Orders",
+      "transTable_SequenceNumber": 2,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T2].[SATZ_ID], 0)",
+      "sequenceNumber": 2,
+      "friendlyName": "Orders"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_Products.7",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_Products",
+      "transTable_SequenceNumber": 7,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T7].[SATZ_ID], 0)",
+      "sequenceNumber": 7,
+      "friendlyName": "Products"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_ReportsTo.5",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_ReportsTo",
+      "transTable_SequenceNumber": 5,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T5].[SATZ_ID], 0)",
+      "sequenceNumber": 5,
+      "friendlyName": "Employees"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_RequiredDate.2",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_RequiredDate",
+      "transTable_SequenceNumber": 2,
+      "column_ColumnName": "RequiredDate",
+      "statement": "@Date2ID([T2].[RequiredDate])",
+      "isAggregate": false,
+      "description": "@Date2ID([T2].[RequiredDate])",
+      "sequenceNumber": 11
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_ShippedDate.2",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_ShippedDate",
+      "transTable_SequenceNumber": 2,
+      "column_ColumnName": "ShippedDate",
+      "statement": "@Date2ID([T2].[ShippedDate])",
+      "isAggregate": false,
+      "description": "@Date2ID([T2].[ShippedDate])",
+      "sequenceNumber": 12
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_Shippers.6",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_Shippers",
+      "transTable_SequenceNumber": 6,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T6].[SATZ_ID], 0)",
+      "sequenceNumber": 6,
+      "friendlyName": "Shippers"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.FK_Suppliers.9",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "FK_Suppliers",
+      "transTable_SequenceNumber": 9,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T9].[SATZ_ID], 0)",
+      "sequenceNumber": 9,
+      "friendlyName": "Suppliers"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.Quantity.1",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "Quantity",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Quantity",
+      "isAggregate": false,
+      "sequenceNumber": 14
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.Total",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "Total",
+      "statement": "T1.UnitPrice*T1.Quantity*(1-T1.Discount)",
+      "isAggregate": false,
+      "description": "T1.UnitPrice*T1.Quantity*(1-T1.Discount)",
+      "sequenceNumber": 16
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.UnitPrice.1",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "columnName": "UnitPrice",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "UnitPrice",
+      "isAggregate": false,
+      "sequenceNumber": 13
+    }
+  ],
+  "iTransformationReferences": [
+    {
+      "hashkey": "DWH.FACT_Order Details.2.1",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "transTable1_SequenceNumber": 2,
+      "transTable2_SequenceNumber": 1,
+      "tableRef_Table1_hash": "STG.Orders",
+      "tableRef_Table2_hash": "STG.Order Details",
+      "tableRef_Description": "FK_Order_Details_Orders_3654271849561856834"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.3.2",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "transTable1_SequenceNumber": 3,
+      "transTable2_SequenceNumber": 2,
+      "tableRef_Table1_hash": "STG.Customers",
+      "tableRef_Table2_hash": "STG.Orders",
+      "tableRef_Description": "FK_Orders_Customers_7416353452619131837"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.4.2",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "transTable1_SequenceNumber": 4,
+      "transTable2_SequenceNumber": 2,
+      "tableRef_Table1_hash": "STG.Employees",
+      "tableRef_Table2_hash": "STG.Orders",
+      "tableRef_Description": "FK_Orders_Employees_8539852955646842916"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.5.4",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "transTable1_SequenceNumber": 5,
+      "transTable2_SequenceNumber": 4,
+      "tableRef_Table1_hash": "STG.Employees",
+      "tableRef_Table2_hash": "STG.Employees",
+      "tableRef_Description": "FK_Employees_Employees_changed"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.6.2",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "transTable1_SequenceNumber": 6,
+      "transTable2_SequenceNumber": 2,
+      "tableRef_Table1_hash": "STG.Shippers",
+      "tableRef_Table2_hash": "STG.Orders",
+      "tableRef_Description": "FK_Orders_Shippers_2222495543595133775"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.7.1",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "transTable1_SequenceNumber": 7,
+      "transTable2_SequenceNumber": 1,
+      "tableRef_Table1_hash": "STG.Products",
+      "tableRef_Table2_hash": "STG.Order Details",
+      "tableRef_Description": "FK_Order_Details_Products_3443700645278120360"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.8.7",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "transTable1_SequenceNumber": 8,
+      "transTable2_SequenceNumber": 7,
+      "tableRef_Table1_hash": "STG.Categories",
+      "tableRef_Table2_hash": "STG.Products",
+      "tableRef_Description": "FK_Products_Categories_2778051762916059631"
+    },
+    {
+      "hashkey": "DWH.FACT_Order Details.9.7",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "transTable1_SequenceNumber": 9,
+      "transTable2_SequenceNumber": 7,
+      "tableRef_Table1_hash": "STG.Suppliers",
+      "tableRef_Table2_hash": "STG.Products",
+      "tableRef_Description": "FK_Products_Suppliers_6105810738201522179"
+    }
+  ],
+  "iTransformationStandards": [
+    {
+      "hashkey": "DWH.FACT_Order Details.BinaryToStr",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "useWithVault": true,
+      "preTrans_hash": "BinaryToStr"
+    }
+  ],
+  "iTransformationStars": [
+    {
+      "hashkey": "DWH.FACT_Order Details.Star.STAR.FACT_Order Details",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "star_hash": "Star",
+      "star_Transformation_Name": "FACT_Order Details",
+      "star_TransformationID_hash": "STAR.FACT_Order Details",
+      "isFact": true
+    }
+  ],
+  "iTransformationSnapshots": [
+    {
+      "hashkey": "DWH.FACT_Order DetailsActual date",
+      "hashkeyParent": "DWH.FACT_Order Details",
+      "snapshot_hash": "Actual date"
+    }
+  ]
+}

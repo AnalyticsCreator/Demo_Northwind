@@ -1,0 +1,7 @@
+{
+  "hashkey": "TimeToDatetime",
+  "name": "TimeToDatetime",
+  "checkStatement": "SrcType IN ('time')",
+  "transStatement": "'CONVERT(datetime, ' + Column_Name + ')'",
+  "use_existing": 0
+}

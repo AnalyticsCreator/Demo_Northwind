@@ -1,0 +1,10 @@
+{
+  "hashkey": "SCRIPT_Forecast",
+  "packageName": "SCRIPT_Forecast",
+  "packageTypeID": 6,
+  "description": "Automatically created SSIS package",
+  "isHandmade": false,
+  "doNotRun": false,
+  "use_existing": 0,
+  "iPackageVariables": []
+}

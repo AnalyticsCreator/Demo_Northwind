@@ -1,0 +1,95 @@
+{
+  "hashkey": "IMP.Orders",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.Orders",
+  "source_hash": "NW.dbo.Orders",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Orders.CustomerID.CustomerID",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "CustomerID",
+      "table_column_name": "CustomerID"
+    },
+    {
+      "hashkey": "IMP.Orders.EmployeeID.EmployeeID",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "EmployeeID",
+      "table_column_name": "EmployeeID"
+    },
+    {
+      "hashkey": "IMP.Orders.Freight.Freight",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "Freight",
+      "table_column_name": "Freight"
+    },
+    {
+      "hashkey": "IMP.Orders.OrderDate.OrderDate",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "OrderDate",
+      "table_column_name": "OrderDate"
+    },
+    {
+      "hashkey": "IMP.Orders.OrderID.OrderID",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "OrderID",
+      "table_column_name": "OrderID"
+    },
+    {
+      "hashkey": "IMP.Orders.RequiredDate.RequiredDate",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "RequiredDate",
+      "table_column_name": "RequiredDate"
+    },
+    {
+      "hashkey": "IMP.Orders.ShipAddress.ShipAddress",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "ShipAddress",
+      "table_column_name": "ShipAddress"
+    },
+    {
+      "hashkey": "IMP.Orders.ShipCity.ShipCity",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "ShipCity",
+      "table_column_name": "ShipCity"
+    },
+    {
+      "hashkey": "IMP.Orders.ShipCountry.ShipCountry",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "ShipCountry",
+      "table_column_name": "ShipCountry"
+    },
+    {
+      "hashkey": "IMP.Orders.ShipName.ShipName",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "ShipName",
+      "table_column_name": "ShipName"
+    },
+    {
+      "hashkey": "IMP.Orders.ShipPostalCode.ShipPostalCode",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "ShipPostalCode",
+      "table_column_name": "ShipPostalCode"
+    },
+    {
+      "hashkey": "IMP.Orders.ShipRegion.ShipRegion",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "ShipRegion",
+      "table_column_name": "ShipRegion"
+    },
+    {
+      "hashkey": "IMP.Orders.ShipVia.ShipVia",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "ShipVia",
+      "table_column_name": "ShipVia"
+    },
+    {
+      "hashkey": "IMP.Orders.ShippedDate.ShippedDate",
+      "hashkeyParent": "IMP.Orders",
+      "source_column_name": "ShippedDate",
+      "table_column_name": "ShippedDate"
+    }
+  ]
+}

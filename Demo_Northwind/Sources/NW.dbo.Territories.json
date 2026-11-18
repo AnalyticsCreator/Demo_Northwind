@@ -1,0 +1,46 @@
+{
+  "hashkey": "NW.dbo.Territories",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "Territories",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.Territories.RegionID",
+      "hashkeyParent": "NW.dbo.Territories",
+      "column_Name": "RegionID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "orderNr": 3,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Territories.TerritoryDescription",
+      "hashkeyParent": "NW.dbo.Territories",
+      "column_Name": "TerritoryDescription",
+      "typeID": 117,
+      "character_Maximum_Length": 50,
+      "is_Nullable": false,
+      "orderNr": 2,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Territories.TerritoryID",
+      "hashkeyParent": "NW.dbo.Territories",
+      "column_Name": "TerritoryID",
+      "typeID": 120,
+      "character_Maximum_Length": 20,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

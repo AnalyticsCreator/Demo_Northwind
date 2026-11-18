@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.Territories.dbo.EmployeeTerritories.FK_EmployeeTerritories_Territories.OneToMany",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "Territories",
+  "source_Schema2": "dbo",
+  "source_Name2": "EmployeeTerritories",
+  "description": "FK_EmployeeTerritories_Territories",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.Territories.dbo.EmployeeTerritories.FK_EmployeeTerritories_Territories.TerritoryID.TerritoryID",
+      "column_Name1": "TerritoryID",
+      "column_Name2": "TerritoryID"
+    }
+  ],
+  "use_existing": 0
+}

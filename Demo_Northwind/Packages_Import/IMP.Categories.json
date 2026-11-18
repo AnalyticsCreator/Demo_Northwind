@@ -1,0 +1,35 @@
+{
+  "hashkey": "IMP.Categories",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.Categories",
+  "source_hash": "NW.dbo.Categories",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Categories.CategoryID.CategoryID",
+      "hashkeyParent": "IMP.Categories",
+      "source_column_name": "CategoryID",
+      "table_column_name": "CategoryID"
+    },
+    {
+      "hashkey": "IMP.Categories.CategoryName.CategoryName",
+      "hashkeyParent": "IMP.Categories",
+      "source_column_name": "CategoryName",
+      "table_column_name": "CategoryName"
+    },
+    {
+      "hashkey": "IMP.Categories.Description.Description",
+      "hashkeyParent": "IMP.Categories",
+      "source_column_name": "Description",
+      "table_column_name": "Description"
+    },
+    {
+      "hashkey": "IMP.Categories.Picture.Picture",
+      "hashkeyParent": "IMP.Categories",
+      "source_column_name": "Picture",
+      "table_column_name": "Picture"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_Region",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_Region",
+  "createDummyEntry": false,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_Region] AS\r\nSELECT\r\n\tT1.[SATZ_ID],\r\n\tT1.[DAT_VON_HIST],\r\n\tT1.[DAT_BIS_HIST],\r\n\tT1.[RegionDescription],\r\n\tT1.[RegionID]\r\nFROM\r\n\t[DWH].[DIM_Region] T1",
+  "table_hash": "STAR.DIM_Region",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_Region",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

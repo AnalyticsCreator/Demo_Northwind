@@ -1,0 +1,6 @@
+{
+  "hashkey": "DWHWIZARD_SAT_PACKAGENAME",
+  "param_Name": "DWHWIZARD_SAT_PACKAGENAME",
+  "param_Value": "HIST_{CONNECTOR_NAME}_SAT{NR}",
+  "use_existing": 0
+}

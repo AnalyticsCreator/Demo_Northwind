@@ -1,0 +1,109 @@
+{
+  "hashkey": "NW.dbo.Products",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "Products",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.Products.CategoryID",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "CategoryID",
+      "typeID": 115,
+      "is_Nullable": true,
+      "orderNr": 4,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.Discontinued",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "Discontinued",
+      "typeID": 103,
+      "is_Nullable": false,
+      "orderNr": 10,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.ProductID",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "ProductID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.ProductName",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "ProductName",
+      "typeID": 120,
+      "character_Maximum_Length": 40,
+      "is_Nullable": false,
+      "orderNr": 2,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.QuantityPerUnit",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "QuantityPerUnit",
+      "typeID": 120,
+      "character_Maximum_Length": 20,
+      "is_Nullable": true,
+      "orderNr": 5,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.ReorderLevel",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "ReorderLevel",
+      "typeID": 124,
+      "is_Nullable": true,
+      "orderNr": 9,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.SupplierID",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "SupplierID",
+      "typeID": 115,
+      "is_Nullable": true,
+      "orderNr": 3,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.UnitPrice",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "UnitPrice",
+      "typeID": 116,
+      "is_Nullable": true,
+      "orderNr": 6,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.UnitsInStock",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "UnitsInStock",
+      "typeID": 124,
+      "is_Nullable": true,
+      "orderNr": 7,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Products.UnitsOnOrder",
+      "hashkeyParent": "NW.dbo.Products",
+      "column_Name": "UnitsOnOrder",
+      "typeID": 124,
+      "is_Nullable": true,
+      "orderNr": 8,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

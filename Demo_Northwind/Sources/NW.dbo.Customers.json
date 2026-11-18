@@ -1,0 +1,127 @@
+{
+  "hashkey": "NW.dbo.Customers",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "Customers",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.Customers.Address",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "Address",
+      "typeID": 120,
+      "character_Maximum_Length": 60,
+      "is_Nullable": true,
+      "orderNr": 5,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.City",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "City",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 6,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.CompanyName",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "CompanyName",
+      "typeID": 120,
+      "character_Maximum_Length": 40,
+      "is_Nullable": false,
+      "orderNr": 2,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.ContactName",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "ContactName",
+      "typeID": 120,
+      "character_Maximum_Length": 30,
+      "is_Nullable": true,
+      "orderNr": 3,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.ContactTitle",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "ContactTitle",
+      "typeID": 120,
+      "character_Maximum_Length": 30,
+      "is_Nullable": true,
+      "orderNr": 4,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.Country",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "Country",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 9,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.CustomerID",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "CustomerID",
+      "typeID": 117,
+      "character_Maximum_Length": 5,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.Fax",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "Fax",
+      "typeID": 120,
+      "character_Maximum_Length": 24,
+      "is_Nullable": true,
+      "orderNr": 11,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.Phone",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "Phone",
+      "typeID": 120,
+      "character_Maximum_Length": 24,
+      "is_Nullable": true,
+      "orderNr": 10,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.PostalCode",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "PostalCode",
+      "typeID": 120,
+      "character_Maximum_Length": 10,
+      "is_Nullable": true,
+      "orderNr": 8,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Customers.Region",
+      "hashkeyParent": "NW.dbo.Customers",
+      "column_Name": "Region",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 7,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

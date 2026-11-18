@@ -1,0 +1,265 @@
+{
+  "hashkey": "DWH.DIM_Orders",
+  "hashkeyParent": "DWH",
+  "transTypeID": 1,
+  "schema_Name": "DWH",
+  "transformation_Name": "DIM_Orders",
+  "createDummyEntry": true,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [DWH].[DIM_Orders] AS\r\nSELECT\r\n\t[SATZ_ID] = ISNULL([T1].[SATZ_ID], 0),\r\n\t[DAT_VON_HIST] = [T1].[DAT_VON_HIST],\r\n\t[DAT_BIS_HIST] = [T1].[DAT_BIS_HIST],\r\n\t[CustomerID] = ISNULL([T1].[CustomerID], 'N.A.'),\r\n\t[EmployeeID] = ISNULL([T1].[EmployeeID], 0),\r\n\t[OrderDate] = [T1].[OrderDate],\r\n\t[RequiredDate] = [T1].[RequiredDate],\r\n\t[ShippedDate] = [T1].[ShippedDate],\r\n\t[ShipVia] = ISNULL([T1].[ShipVia], 0),\r\n\t[Freight] = ISNULL([T1].[Freight], 0),\r\n\t[ShipName] = RTRIM(LTRIM(ISNULL([T1].[ShipName], 'N.A.'))),\r\n\t[ShipAddress] = RTRIM(LTRIM(ISNULL([T1].[ShipAddress], 'N.A.'))),\r\n\t[ShipCity] = RTRIM(LTRIM(ISNULL([T1].[ShipCity], 'N.A.'))),\r\n\t[ShipRegion] = RTRIM(LTRIM(ISNULL([T1].[ShipRegion], 'N.A.'))),\r\n\t[ShipPostalCode] = RTRIM(LTRIM(ISNULL([T1].[ShipPostalCode], 'N.A.'))),\r\n\t[ShipCountry] = RTRIM(LTRIM(ISNULL([T1].[ShipCountry], 'N.A.'))),\r\n\t[OrderID] = ISNULL([T1].[OrderID], 0)\r\nFROM\r\n\t[STG].[Orders] T1 (NOLOCK)\r\nWHERE\r\n\t1 = 1\r\nUNION ALL SELECT \r\n\t[SATZ_ID] = 0,\r\n\t[DAT_VON_HIST] = '19000101',\r\n\t[DAT_BIS_HIST] = '99991231',\r\n\t[CustomerID] = ISNULL(NULL, 'N.A.'),\r\n\t[EmployeeID] = ISNULL(NULL, 0),\r\n\t[OrderDate] = NULL,\r\n\t[RequiredDate] = NULL,\r\n\t[ShippedDate] = NULL,\r\n\t[ShipVia] = ISNULL(NULL, 0),\r\n\t[Freight] = ISNULL(NULL, 0),\r\n\t[ShipName] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[ShipAddress] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[ShipCity] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[ShipRegion] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[ShipPostalCode] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[ShipCountry] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[OrderID] = ISNULL(NULL, 0)",
+  "table_hash": "DWH.DIM_Orders",
+  "isCreated": true,
+  "isFact": false,
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [
+    {
+      "hashkey": "DWH.DIM_Orders.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "sequenceNumber": 1,
+      "table_hash": "STG.Orders",
+      "tableAlias": "T1",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    }
+  ],
+  "iTransformationColumns": [
+    {
+      "hashkey": "DWH.DIM_Orders.CustomerID.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "CustomerID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "CustomerID",
+      "isAggregate": false,
+      "sequenceNumber": 4
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.DAT_BIS_HIST.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "DAT_BIS_HIST",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "DAT_BIS_HIST",
+      "isAggregate": false,
+      "defaultValue": "'99991231'",
+      "description": "Orders: End of validity period",
+      "sequenceNumber": 3,
+      "friendlyName": "Orders_ValidTo"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.DAT_VON_HIST.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "DAT_VON_HIST",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "DAT_VON_HIST",
+      "isAggregate": false,
+      "defaultValue": "'19000101'",
+      "description": "Orders: Start of validity period",
+      "sequenceNumber": 2,
+      "friendlyName": "Orders_ValidFrom"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.EmployeeID.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "EmployeeID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "EmployeeID",
+      "isAggregate": false,
+      "sequenceNumber": 5
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.Freight.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "Freight",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Freight",
+      "isAggregate": false,
+      "sequenceNumber": 10
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.OrderDate.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "OrderDate",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "OrderDate",
+      "isAggregate": false,
+      "sequenceNumber": 6
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.OrderID.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "OrderID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "OrderID",
+      "isAggregate": false,
+      "sequenceNumber": 17,
+      "pK_Ordinal_Position": 1
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.RequiredDate.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "RequiredDate",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "RequiredDate",
+      "isAggregate": false,
+      "sequenceNumber": 7
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.SATZ_ID.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "SATZ_ID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T1].[SATZ_ID], 0)",
+      "sequenceNumber": 1,
+      "friendlyName": "Orders"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.ShipAddress.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "ShipAddress",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ShipAddress",
+      "isAggregate": false,
+      "sequenceNumber": 12
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.ShipCity.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "ShipCity",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ShipCity",
+      "isAggregate": false,
+      "sequenceNumber": 13
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.ShipCountry.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "ShipCountry",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ShipCountry",
+      "isAggregate": false,
+      "sequenceNumber": 16
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.ShipName.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "ShipName",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ShipName",
+      "isAggregate": false,
+      "sequenceNumber": 11
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.ShipPostalCode.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "ShipPostalCode",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ShipPostalCode",
+      "isAggregate": false,
+      "sequenceNumber": 15
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.ShipRegion.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "ShipRegion",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ShipRegion",
+      "isAggregate": false,
+      "sequenceNumber": 14
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.ShipVia.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "ShipVia",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ShipVia",
+      "isAggregate": false,
+      "sequenceNumber": 9
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.ShippedDate.1",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "columnName": "ShippedDate",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ShippedDate",
+      "isAggregate": false,
+      "sequenceNumber": 8
+    }
+  ],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [
+    {
+      "hashkey": "DWH.DIM_Orders.Anonymization",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "Anonymization"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.BinaryToStr",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "BinaryToStr"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.HierarchyToString",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "HierarchyToString"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.NumberNULLToZero",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "NumberNULLToZero"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.StringMaxTo8000",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "StringMaxTo8000"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.StringNULLToNA",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "StringNULLToNA"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.TimeToDatetime",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "TimeToDatetime"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.Trim",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "Trim"
+    },
+    {
+      "hashkey": "DWH.DIM_Orders.XmlToString",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "useWithVault": true,
+      "preTrans_hash": "XmlToString"
+    }
+  ],
+  "iTransformationStars": [
+    {
+      "hashkey": "DWH.DIM_Orders.Star.STAR.DIM_Orders",
+      "hashkeyParent": "DWH.DIM_Orders",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_Orders",
+      "star_TransformationID_hash": "STAR.DIM_Orders",
+      "isFact": false
+    }
+  ],
+  "iTransformationSnapshots": []
+}

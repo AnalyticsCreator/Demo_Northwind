@@ -1,0 +1,8 @@
+{
+  "hashkey": ".Historization: set persisting flag on",
+  "name": "Historization: set persisting flag on",
+  "description": "Historization: set persisting flag on for all historicised VIEWs",
+  "statement": "/*\r\nScript to turn on the persisting flag for all historicised VIEWs\r\n*/\r\n\r\nUPDATE R\r\nSET PersistSource = 1\r\nFROM\r\n\tCFG.HIST_TABLE_REFERENCES R\r\n\tINNER JOIN CFG.TABLES HT ON\r\n\t\tHT.TableID = R.TableID\r\n\tINNER JOIN CFG.TABLES T ON\r\n\t\tT.TableID = HT.HistOftableID\r\n\tINNER JOIN INTERN.TABLE_TYPES TT ON\r\n\t\tTT.TableTypeID = T.TableTypeID AND\r\n\t\tTT.isVIEW = 1\r\nWHERE\r\n\tR.PersistSource = 0",
+  "iObjectScriptParams": [],
+  "use_existing": 0
+}

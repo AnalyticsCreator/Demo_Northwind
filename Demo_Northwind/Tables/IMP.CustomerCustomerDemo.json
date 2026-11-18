@@ -1,0 +1,50 @@
+{
+  "hashkey": "IMP.CustomerCustomerDemo",
+  "hashkeyParent": "IMP",
+  "tableTypeID": 1,
+  "schema_Name": "IMP",
+  "table_Name": "CustomerCustomerDemo",
+  "compressionTypeID": 0,
+  "doNotExport": false,
+  "isInMemory": false,
+  "olaP_IsHidden": false,
+  "dontInheritPK": false,
+  "use_existing": 0,
+  "iColumns": [
+    {
+      "hashkey": "IMP.CustomerCustomerDemo.CustomerID",
+      "hashkeyParent": "IMP.CustomerCustomerDemo",
+      "column_Name": "CustomerID",
+      "typeID": 117,
+      "character_Maximum_Length": 5,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "toOLAP": 0,
+      "isCalculated": false,
+      "isPersisted": false,
+      "isIdentity": false,
+      "anonymize": 0,
+      "olaP_DataCategory": 0,
+      "isAdditional": false,
+      "olapDoubleSided": false
+    },
+    {
+      "hashkey": "IMP.CustomerCustomerDemo.CustomerTypeID",
+      "hashkeyParent": "IMP.CustomerCustomerDemo",
+      "column_Name": "CustomerTypeID",
+      "typeID": 117,
+      "character_Maximum_Length": 10,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 2,
+      "toOLAP": 0,
+      "isCalculated": false,
+      "isPersisted": false,
+      "isIdentity": false,
+      "anonymize": 0,
+      "olaP_DataCategory": 0,
+      "isAdditional": false,
+      "olapDoubleSided": false
+    }
+  ],
+  "iMeasures": []
+}

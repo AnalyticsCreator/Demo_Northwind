@@ -1,0 +1,29 @@
+{
+  "hashkey": "IMP.Territories",
+  "hashkeyParent": "IMP_NW2",
+  "table_hash": "IMP.Territories",
+  "source_hash": "NW.dbo.Territories",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Territories.RegionID.RegionID",
+      "hashkeyParent": "IMP.Territories",
+      "source_column_name": "RegionID",
+      "table_column_name": "RegionID"
+    },
+    {
+      "hashkey": "IMP.Territories.TerritoryDescription.TerritoryDescription",
+      "hashkeyParent": "IMP.Territories",
+      "source_column_name": "TerritoryDescription",
+      "table_column_name": "TerritoryDescription"
+    },
+    {
+      "hashkey": "IMP.Territories.TerritoryID.TerritoryID",
+      "hashkeyParent": "IMP.Territories",
+      "source_column_name": "TerritoryID",
+      "table_column_name": "TerritoryID"
+    }
+  ]
+}

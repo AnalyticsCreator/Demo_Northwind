@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_Categories",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_Categories",
+  "createDummyEntry": false,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_Categories] AS\r\nSELECT\r\n\tT1.[SATZ_ID],\r\n\tT1.[DAT_VON_HIST],\r\n\tT1.[DAT_BIS_HIST],\r\n\tT1.[CategoryName],\r\n\tT1.[Description],\r\n\tT1.[Picture],\r\n\tT1.[CategoryID]\r\nFROM\r\n\t[DWH].[DIM_Categories] T1",
+  "table_hash": "STAR.DIM_Categories",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_Categories",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

@@ -1,0 +1,38 @@
+{
+  "hashkey": "CFG.TRANSFORMATIONS.Create OLAP partitions",
+  "table": "CFG.TRANSFORMATIONS",
+  "name": "Create OLAP partitions",
+  "description": "Create OLAP partitions for specific datamart table",
+  "statement": "/*\r\nCreate OLAP partitions for specific datamart table\r\n*/\r\nDECLARE \r\n\t@TableID int,\r\n\t@id sysname = ':5',\r\n\t@step int = :4,\r\n\t@min int = :2,\r\n\t@max int = :3,\r\n\t@cur int = 0,\r\n\t@I int = 1,\r\n\t@table sysname,\r\n\t@schema sysname\r\n\r\nSELECT \r\n\t@TableID = TableID\r\nFROM\r\n\tCFG.TRANSFORMATIONS\r\nWHERE\r\n\tTransformationID = :1 AND\r\n\tTransTypeID = 3 --star\r\n\r\nIF @id IS NULL OR @id = '' OR @id = 'NULL'\r\n\tSET @id = CFG.GET_PARAM_VALUE('HIST_ID_FIELDNAME')\r\n\r\nIF EXISTS(SELECT 1 FROM CFG.COLUMNS WHERE TableID = @TableID AND Column_Name = @id)\r\nBEGIN\r\n\tDELETE FROM CFG.OLAP_PARTITIONS WHERE TableID = @TableID\r\n\tSELECT \r\n\t\t@schema = S.Schema_Name,\r\n\t\t@table = T.Table_Name \r\n\tFROM \r\n\t\tCFG.TABLES T\r\n\t\tINNER JOIN CFG.SCHEMAS S ON\r\n\t\t\tS.SchemaID = T.SchemaID\r\n\tWHERE \r\n\t\tT.TableID = @TableID\r\n\r\n\tSET @cur = @min\r\n\r\n\tWHILE @cur <= @max\r\n\tBEGIN\r\n\t\tINSERT INTO CFG.OLAP_PARTITIONS(Name, TableID, SQL)\r\n\t\tSELECT @table + '_' + CONVERT(varchar(8), @I),  @TableID, 'SELECT * FROM ['+ @schema + '].[' + @table + '] WHERE ' + \r\n\t\tCASE WHEN @cur <> @min THEN @id + ' > ' + CONVERT(varchar(12), @cur) ELSE '' END + \r\n\t\tCASE WHEN @cur <> @min AND @cur + @step <= @max  THEN  ' AND ' ELSE '' END + \r\n\t\tCASE WHEN @cur + @step <= @max  THEN  @id + ' <= ' + CONVERT(varchar(12), @cur + @step) ELSE '' END \r\n\r\n\t\tSET @I = @I + 1\r\n\t\tSET @cur = @cur + @step\r\n\tEND\r\nEND",
+  "iObjectScriptParams": [
+    {
+      "hashkey": "CFG.TRANSFORMATIONS.Create OLAP partitions.2",
+      "hashkeyParent": "CFG.TRANSFORMATIONS.Create OLAP partitions",
+      "seqNr": 2,
+      "parameter": "MinID",
+      "use_existing": 0
+    },
+    {
+      "hashkey": "CFG.TRANSFORMATIONS.Create OLAP partitions.3",
+      "hashkeyParent": "CFG.TRANSFORMATIONS.Create OLAP partitions",
+      "seqNr": 3,
+      "parameter": "MaxID",
+      "use_existing": 0
+    },
+    {
+      "hashkey": "CFG.TRANSFORMATIONS.Create OLAP partitions.4",
+      "hashkeyParent": "CFG.TRANSFORMATIONS.Create OLAP partitions",
+      "seqNr": 4,
+      "parameter": "Step",
+      "use_existing": 0
+    },
+    {
+      "hashkey": "CFG.TRANSFORMATIONS.Create OLAP partitions.5",
+      "hashkeyParent": "CFG.TRANSFORMATIONS.Create OLAP partitions",
+      "seqNr": 5,
+      "parameter": "Column",
+      "use_existing": 0
+    }
+  ],
+  "use_existing": 0
+}

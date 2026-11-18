@@ -1,0 +1,21 @@
+{
+  "hashkey": "STG.Shippers.STG.Orders.FK_Orders_Shippers_2222495543595133775.OneToMany",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "table1_hash": "STG.Shippers",
+  "table2_hash": "STG.Orders",
+  "description": "FK_Orders_Shippers_2222495543595133775",
+  "parentDescription": "FK_Orders_Shippers",
+  "autoCreated": true,
+  "inactive": false,
+  "inheritance": 0,
+  "use_existing": 0,
+  "iTableReferenceColumns": [
+    {
+      "hashkey": "STG.Shippers.STG.Orders.FK_Orders_Shippers_2222495543595133775.ShipperID.ShipVia",
+      "hashkeyParent": "STG.Shippers.STG.Orders.FK_Orders_Shippers_2222495543595133775.OneToMany",
+      "column_Name1": "ShipperID",
+      "column_Name2": "ShipVia"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "hashkey": "DWH.DIM_Snapshot",
+  "hashkeyParent": "DWH",
+  "transTypeID": 2,
+  "schema_Name": "DWH",
+  "transformation_Name": "DIM_Snapshot",
+  "createDummyEntry": false,
+  "transHistTypeID": 5,
+  "viewDefinition": "CREATE VIEW DWH.DIM_Snapshot AS \r\nSELECT \r\n\t[SATZ_ID] = [SnapshotID],\r\n\t[Name] = [Snapshot_Name],\r\n\t[Description] = [Description],\r\n\t[Date] = [Date]\r\nFROM \r\n\t[CFG].[SNAPSHOTS]",
+  "table_hash": "DWH.DIM_Snapshot",
+  "isCreated": true,
+  "isFact": false,
+  "description": "SNAPSHOT",
+  "createResultTable": false,
+  "isDistinct": false,
+  "specialType": 1,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [
+    {
+      "hashkey": "DWH.DIM_Snapshot.Star.STAR.DIM_Snapshot",
+      "hashkeyParent": "DWH.DIM_Snapshot",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_Snapshot",
+      "star_TransformationID_hash": "STAR.DIM_Snapshot",
+      "isFact": false
+    }
+  ],
+  "iTransformationSnapshots": []
+}

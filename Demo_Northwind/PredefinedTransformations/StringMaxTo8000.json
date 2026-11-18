@@ -1,0 +1,7 @@
+{
+  "hashkey": "StringMaxTo8000",
+  "name": "StringMaxTo8000",
+  "checkStatement": "SrcType IN ('varchar', 'nvarchar') AND Character_Maximum_Length = -1",
+  "transStatement": "'CONVERT(' + SrcType  + '(' + CASE SrcType WHEN 'varchar' THEN '8000' ELSE '4000' END + '), ' + Column_Name + ')'",
+  "use_existing": 0
+}

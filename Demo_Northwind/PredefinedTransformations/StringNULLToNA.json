@@ -1,0 +1,7 @@
+{
+  "hashkey": "StringNULLToNA",
+  "name": "StringNULLToNA",
+  "checkStatement": "SrcType IN ('varchar', 'nvarchar', 'char', 'nchar')",
+  "transStatement": "'ISNULL(' + Column_Name + ', ''' + CASE Character_Maximum_Length WHEN 1 THEN 'N' WHEN 2 THEN 'NA' WHEN 3 THEN 'NA' ELSE 'N.A.' END + ''')'",
+  "use_existing": 0
+}

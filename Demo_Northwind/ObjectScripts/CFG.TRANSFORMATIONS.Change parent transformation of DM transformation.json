@@ -1,0 +1,17 @@
+{
+  "hashkey": "CFG.TRANSFORMATIONS.Change parent transformation of DM transformation",
+  "table": "CFG.TRANSFORMATIONS",
+  "name": "Change parent transformation of DM transformation",
+  "description": "Change parent transformation of datamart transformation",
+  "statement": "/*\r\nChange parent transformation of datamart transformation\r\n*/\r\n\r\nDECLARE \r\n\t@StarTransformationID int = :1, --TransformationID of the star transformation which should be remapped\r\n\t@NewTransformationID int = :2, --TransformationID of the new dwh transformation\r\n\t@OldTransformationID int,\r\n\t@MissingCols nvarchar(4000) = '',\r\n\t@Transformation_Name sysname\r\n\r\nSELECT\r\n\t@OldTransformationID = TransformationID,\r\n\t@Transformation_Name = Star_Transformation_Name\r\nFROM\r\n\tCFG.TRANSFORMATION_STARS\r\nWHERE\r\n\tStar_TransformationID = @StarTransformationID\r\n\r\nIF @@ROWCOUNT = 0\r\nBEGIN\r\n\tRAISERROR('Cannot redefine main transformation. Datamart transformation with ID  [%i] is not found', 16, 1,  @StarTransformationID)\r\nEND ELSE IF EXISTS(SELECT 1 FROM CFG.TRANSFORMATION_STARS WHERE TransformationID = @NewTransformationID AND Star_Transformation_Name = @Transformation_Name)\r\nBEGIN\r\n\tRAISERROR('Cannot redefine main transformation. The new transformation already contains the star transformation [%s]', 16, 1, @Transformation_Name)\r\nEND ELSE IF @OldTransformationID = @NewTransformationID\r\nBEGIN\r\n\tRAISERROR('Cannot redefine main transformation. The old and the new transformations are the same', 16, 1)\r\nEND ELSE BEGIN\r\n\tSELECT\r\n\t\t@MissingCols = @MissingCols + CASE WHEN @MissingCols = '' THEN '' ELSE ', ' END + CS.Column_Name \r\n\tFROM\r\n\t\tCFG.TRANSFORMATIONS TS \r\n\t\tINNER JOIN CFG.MEASURES M ON\r\n\t\t\tM.TableID = TS.TableID\r\n\t\tINNER JOIN CFG.COLUMNS CS ON\r\n\t\t\tCS.ColumnID = M.ColumnID\r\n\t\tLEFT JOIN CFG.TRANSFORMATIONS T ON\r\n\t\t\tT.TransformationID = @NewTransformationID\r\n\t\tLEFT JOIN CFG.COLUMNS C ON\r\n\t\t\tC.TableID = T.TableID AND\r\n\t\t\tC.Column_Name = CS.Column_Name\r\n\tWHERE\r\n\t\tTS.TransformationID = @StarTransformationID AND\r\n\t\tC.ColumnID IS NULL\r\n\r\n\tIF @MissingCols != ''\r\n\tBEGIN\r\n\t\tRAISERROR('Cannot redefine main transformation. Following columns used in measures are missing: %s', 16, 1, @MissingCols)\r\n\tEND ELSE BEGIN\r\n\r\n\t\tUPDATE\r\n\t\t\tCFG.TRANSFORMATION_STARS\r\n\t\tSET\r\n\t\t\tTransformationID = @NewTransformationID\r\n\t\tWHERE\r\n\t\t\tStar_TransformationID = @StarTransformationID\r\n\r\n\t\tEXEC CFG.CREATE_TRANS_VIEW @NewTransformationID, NULL, 1\r\n\t\tEXEC CFG.CREATE_TRANS_VIEW @OldTransformationID, NULL, 1\r\n\tEND\r\nEND",
+  "iObjectScriptParams": [
+    {
+      "hashkey": "CFG.TRANSFORMATIONS.Change parent transformation of DM transformation.1",
+      "hashkeyParent": "CFG.TRANSFORMATIONS.Change parent transformation of DM transformation",
+      "seqNr": 1,
+      "parameter": "New parent transformation ID",
+      "use_existing": 0
+    }
+  ],
+  "use_existing": 0
+}

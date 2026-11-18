@@ -1,0 +1,119 @@
+{
+  "hashkey": "IMP.Employees",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.Employees",
+  "source_hash": "NW.dbo.Employees",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Employees.Address.Address",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "Address",
+      "table_column_name": "Address"
+    },
+    {
+      "hashkey": "IMP.Employees.BirthDate.BirthDate",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "BirthDate",
+      "table_column_name": "BirthDate"
+    },
+    {
+      "hashkey": "IMP.Employees.City.City",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "City",
+      "table_column_name": "City"
+    },
+    {
+      "hashkey": "IMP.Employees.Country.Country",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "Country",
+      "table_column_name": "Country"
+    },
+    {
+      "hashkey": "IMP.Employees.EmployeeID.EmployeeID",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "EmployeeID",
+      "table_column_name": "EmployeeID"
+    },
+    {
+      "hashkey": "IMP.Employees.Extension.Extension",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "Extension",
+      "table_column_name": "Extension"
+    },
+    {
+      "hashkey": "IMP.Employees.FirstName.FirstName",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "FirstName",
+      "table_column_name": "FirstName"
+    },
+    {
+      "hashkey": "IMP.Employees.HireDate.HireDate",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "HireDate",
+      "table_column_name": "HireDate"
+    },
+    {
+      "hashkey": "IMP.Employees.HomePhone.HomePhone",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "HomePhone",
+      "table_column_name": "HomePhone"
+    },
+    {
+      "hashkey": "IMP.Employees.LastName.LastName",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "LastName",
+      "table_column_name": "LastName"
+    },
+    {
+      "hashkey": "IMP.Employees.Notes.Notes",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "Notes",
+      "table_column_name": "Notes"
+    },
+    {
+      "hashkey": "IMP.Employees.Photo.Photo",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "Photo",
+      "table_column_name": "Photo"
+    },
+    {
+      "hashkey": "IMP.Employees.PhotoPath.PhotoPath",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "PhotoPath",
+      "table_column_name": "PhotoPath"
+    },
+    {
+      "hashkey": "IMP.Employees.PostalCode.PostalCode",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "PostalCode",
+      "table_column_name": "PostalCode"
+    },
+    {
+      "hashkey": "IMP.Employees.Region.Region",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "Region",
+      "table_column_name": "Region"
+    },
+    {
+      "hashkey": "IMP.Employees.ReportsTo.ReportsTo",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "ReportsTo",
+      "table_column_name": "ReportsTo"
+    },
+    {
+      "hashkey": "IMP.Employees.Title.Title",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "Title",
+      "table_column_name": "Title"
+    },
+    {
+      "hashkey": "IMP.Employees.TitleOfCourtesy.TitleOfCourtesy",
+      "hashkeyParent": "IMP.Employees",
+      "source_column_name": "TitleOfCourtesy",
+      "table_column_name": "TitleOfCourtesy"
+    }
+  ]
+}

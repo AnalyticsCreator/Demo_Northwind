@@ -1,0 +1,191 @@
+{
+  "hashkey": "NW.dbo.Employees",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "Employees",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.Employees.Address",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "Address",
+      "typeID": 120,
+      "character_Maximum_Length": 60,
+      "is_Nullable": true,
+      "orderNr": 8,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.BirthDate",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "BirthDate",
+      "typeID": 106,
+      "is_Nullable": true,
+      "orderNr": 6,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.City",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "City",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 9,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.Country",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "Country",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 12,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.EmployeeID",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "EmployeeID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.Extension",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "Extension",
+      "typeID": 120,
+      "character_Maximum_Length": 4,
+      "is_Nullable": true,
+      "orderNr": 14,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.FirstName",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "FirstName",
+      "typeID": 120,
+      "character_Maximum_Length": 10,
+      "is_Nullable": false,
+      "orderNr": 3,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.HireDate",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "HireDate",
+      "typeID": 106,
+      "is_Nullable": true,
+      "orderNr": 7,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.HomePhone",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "HomePhone",
+      "typeID": 120,
+      "character_Maximum_Length": 24,
+      "is_Nullable": true,
+      "orderNr": 13,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.LastName",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "LastName",
+      "typeID": 120,
+      "character_Maximum_Length": 20,
+      "is_Nullable": false,
+      "orderNr": 2,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.Notes",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "Notes",
+      "typeID": 118,
+      "is_Nullable": true,
+      "orderNr": 16,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.Photo",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "Photo",
+      "typeID": 114,
+      "is_Nullable": true,
+      "orderNr": 15,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.PhotoPath",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "PhotoPath",
+      "typeID": 120,
+      "character_Maximum_Length": 255,
+      "is_Nullable": true,
+      "orderNr": 18,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.PostalCode",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "PostalCode",
+      "typeID": 120,
+      "character_Maximum_Length": 10,
+      "is_Nullable": true,
+      "orderNr": 11,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.Region",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "Region",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 10,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.ReportsTo",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "ReportsTo",
+      "typeID": 115,
+      "is_Nullable": true,
+      "orderNr": 17,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.Title",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "Title",
+      "typeID": 120,
+      "character_Maximum_Length": 30,
+      "is_Nullable": true,
+      "orderNr": 4,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Employees.TitleOfCourtesy",
+      "hashkeyParent": "NW.dbo.Employees",
+      "column_Name": "TitleOfCourtesy",
+      "typeID": 120,
+      "character_Maximum_Length": 25,
+      "is_Nullable": true,
+      "orderNr": 5,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

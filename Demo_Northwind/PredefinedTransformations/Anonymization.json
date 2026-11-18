@@ -1,0 +1,7 @@
+{
+  "hashkey": "Anonymization",
+  "name": "Anonymization",
+  "checkStatement": "Anonymize = 1",
+  "transStatement": "'CASE WHEN ' + Anonymization_check_statement + ' THEN NULL ELSE ' + Column_Name + ' END'",
+  "use_existing": 0
+}

@@ -1,0 +1,21 @@
+{
+  "hashkey": "STG.Employees.STG.Orders.FK_Orders_Employees_8539852955646842916.OneToMany",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "table1_hash": "STG.Employees",
+  "table2_hash": "STG.Orders",
+  "description": "FK_Orders_Employees_8539852955646842916",
+  "parentDescription": "FK_Orders_Employees",
+  "autoCreated": true,
+  "inactive": false,
+  "inheritance": 0,
+  "use_existing": 0,
+  "iTableReferenceColumns": [
+    {
+      "hashkey": "STG.Employees.STG.Orders.FK_Orders_Employees_8539852955646842916.EmployeeID.EmployeeID",
+      "hashkeyParent": "STG.Employees.STG.Orders.FK_Orders_Employees_8539852955646842916.OneToMany",
+      "column_Name1": "EmployeeID",
+      "column_Name2": "EmployeeID"
+    }
+  ]
+}

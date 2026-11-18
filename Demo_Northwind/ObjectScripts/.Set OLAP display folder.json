@@ -1,0 +1,32 @@
+{
+  "hashkey": ".Set OLAP display folder",
+  "name": "Set OLAP display folder",
+  "description": "Set OLAP display folder of datamart transformation",
+  "statement": "/*\r\nSet OLAP display folder of datamart transformation.\r\nParameters: \r\n\tOnlyIfEmpty:\t1 - only empty folders will be set, 0 - all folders will be set\r\n\tFolderName:\t\tName of the folder\r\n\tSchema_Name:\tName of the schema. If empty, all dimensions will be changed\r\n*/\r\nUPDATE C\r\nSET C.OLAP_DisplayFolder = ':2'\r\nFROM\r\n\tCFG.SCHEMAS S\r\n\tINNER JOIN CFG.TABLES T ON\r\n\t\tT.SchemaID = S.SchemaID AND\r\n\t\tT.TableTypeID IN (7, 8)\r\n\tINNER JOIN CFG.COLUMNS C ON\r\n\t\tC.TableID = T.TableID\r\nWHERE\r\n\tS.SchemaTypeID = 5 AND\r\n\t(:3 IS NULL OR S.Schema_Name = :3) AND\r\n\t(:1 = 0 OR C.OLAP_DisplayFolder IS NULL OR C.OLAP_DisplayFolder = '')\r\n",
+  "iObjectScriptParams": [
+    {
+      "hashkey": ".Set OLAP display folder.1",
+      "hashkeyParent": ".Set OLAP display folder",
+      "seqNr": 1,
+      "parameter": "OnlyIfEmpty",
+      "defaultValue": "1",
+      "use_existing": 0
+    },
+    {
+      "hashkey": ".Set OLAP display folder.2",
+      "hashkeyParent": ".Set OLAP display folder",
+      "seqNr": 2,
+      "parameter": "FolderName",
+      "defaultValue": "Attributes",
+      "use_existing": 0
+    },
+    {
+      "hashkey": ".Set OLAP display folder.3",
+      "hashkeyParent": ".Set OLAP display folder",
+      "seqNr": 3,
+      "parameter": "Schema_Name",
+      "use_existing": 0
+    }
+  ],
+  "use_existing": 0
+}

@@ -1,0 +1,8 @@
+{
+  "hashkey": ".Renew relations",
+  "name": "Renew relations",
+  "description": "Renew all object relations in repository",
+  "statement": "/*\r\nScript to renew all object relations in repository\r\n*/\r\n\r\nEXEC CFG.RENEW_RELATIONS",
+  "iObjectScriptParams": [],
+  "use_existing": 0
+}

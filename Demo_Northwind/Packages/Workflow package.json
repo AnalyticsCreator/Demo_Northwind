@@ -1,0 +1,10 @@
+{
+  "hashkey": "Workflow package",
+  "packageName": "Workflow package",
+  "packageTypeID": 4,
+  "description": "Automatically created package",
+  "isHandmade": false,
+  "doNotRun": false,
+  "use_existing": 0,
+  "iPackageVariables": []
+}

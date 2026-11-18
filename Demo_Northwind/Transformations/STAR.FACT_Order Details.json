@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.FACT_Order Details",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "FACT_Order Details",
+  "createDummyEntry": false,
+  "transHistTypeID": 3,
+  "viewDefinition": "CREATE VIEW [STAR].[FACT_Order Details] AS\r\nSELECT\r\n\tT1.[FK_Order Details],\r\n\tT1.[FK_Orders],\r\n\tT1.[FK_Customers],\r\n\tT1.[FK_Employees],\r\n\tT1.[FK_ReportsTo],\r\n\tT1.[FK_Shippers],\r\n\tT1.[FK_Products],\r\n\tT1.[FK_Categories],\r\n\tT1.[FK_Suppliers],\r\n\tT1.[FK_OrderDate],\r\n\tT1.[FK_RequiredDate],\r\n\tT1.[FK_ShippedDate],\r\n\tT1.[UnitPrice],\r\n\tT1.[Quantity],\r\n\tT1.[Discount],\r\n\tT1.[Total],\r\n\tT1.[FK_SNAPSHOT]\r\nFROM\r\n\t[DWH].[FACT_Order Details_T] T1",
+  "table_hash": "STAR.FACT_Order Details",
+  "isCreated": true,
+  "isFact": true,
+  "parentTrans_hash": "DWH.FACT_Order Details",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

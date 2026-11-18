@@ -1,0 +1,21 @@
+{
+  "hashkey": "STG.Suppliers.STG.Products.FK_Products_Suppliers_6105810738201522179.OneToMany",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "table1_hash": "STG.Suppliers",
+  "table2_hash": "STG.Products",
+  "description": "FK_Products_Suppliers_6105810738201522179",
+  "parentDescription": "FK_Products_Suppliers",
+  "autoCreated": true,
+  "inactive": false,
+  "inheritance": 0,
+  "use_existing": 0,
+  "iTableReferenceColumns": [
+    {
+      "hashkey": "STG.Suppliers.STG.Products.FK_Products_Suppliers_6105810738201522179.SupplierID.SupplierID",
+      "hashkeyParent": "STG.Suppliers.STG.Products.FK_Products_Suppliers_6105810738201522179.OneToMany",
+      "column_Name1": "SupplierID",
+      "column_Name2": "SupplierID"
+    }
+  ]
+}

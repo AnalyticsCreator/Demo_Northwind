@@ -1,0 +1,29 @@
+{
+  "hashkey": "IMP.Shippers",
+  "hashkeyParent": "IMP_NW2",
+  "table_hash": "IMP.Shippers",
+  "source_hash": "NW.dbo.Shippers",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Shippers.CompanyName.CompanyName",
+      "hashkeyParent": "IMP.Shippers",
+      "source_column_name": "CompanyName",
+      "table_column_name": "CompanyName"
+    },
+    {
+      "hashkey": "IMP.Shippers.Phone.Phone",
+      "hashkeyParent": "IMP.Shippers",
+      "source_column_name": "Phone",
+      "table_column_name": "Phone"
+    },
+    {
+      "hashkey": "IMP.Shippers.ShipperID.ShipperID",
+      "hashkeyParent": "IMP.Shippers",
+      "source_column_name": "ShipperID",
+      "table_column_name": "ShipperID"
+    }
+  ]
+}

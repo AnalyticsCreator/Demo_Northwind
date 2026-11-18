@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.Products.dbo.Suppliers.FK_Products_Suppliers.ManyToOne",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 4,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "Products",
+  "source_Schema2": "dbo",
+  "source_Name2": "Suppliers",
+  "description": "FK_Products_Suppliers",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.Products.dbo.Suppliers.FK_Products_Suppliers.SupplierID.SupplierID",
+      "column_Name1": "SupplierID",
+      "column_Name2": "SupplierID"
+    }
+  ],
+  "use_existing": 0
+}

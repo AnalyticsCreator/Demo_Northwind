@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.Territories.dbo.Region.FK_Territories_Region.ManyToOne",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 4,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "Territories",
+  "source_Schema2": "dbo",
+  "source_Name2": "Region",
+  "description": "FK_Territories_Region",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.Territories.dbo.Region.FK_Territories_Region.RegionID.RegionID",
+      "column_Name1": "RegionID",
+      "column_Name2": "RegionID"
+    }
+  ],
+  "use_existing": 0
+}

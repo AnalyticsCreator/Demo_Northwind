@@ -1,0 +1,8 @@
+{
+  "hashkey": ".Historization: set persisting flag off",
+  "name": "Historization: set persisting flag off",
+  "description": "Historization: set persisting flag off for all historicised VIEWs",
+  "statement": "/*\r\nScript to turn off the persisting flag for all historicised VIEWs\r\n*/\r\n\r\nUPDATE CFG.HIST_TABLE_REFERENCES\r\nSET PersistSource = 0\r\nWHERE PersistSource = 1",
+  "iObjectScriptParams": [],
+  "use_existing": 0
+}

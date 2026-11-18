@@ -1,0 +1,8 @@
+{
+  "hashkey": ".Update friendly names",
+  "name": "Update friendly names",
+  "description": "Update all object friendly names in repository",
+  "statement": "/*\r\nUpdate all object friendly names in repository\r\n*/\r\n\r\nEXEC CFG.UPDATE_FRIENDLY_NAMES",
+  "iObjectScriptParams": [],
+  "use_existing": 0
+}

@@ -1,0 +1,71 @@
+{
+  "hashkey": "IMP.Products",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.Products",
+  "source_hash": "NW.dbo.Products",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Products.CategoryID.CategoryID",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "CategoryID",
+      "table_column_name": "CategoryID"
+    },
+    {
+      "hashkey": "IMP.Products.Discontinued.Discontinued",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "Discontinued",
+      "table_column_name": "Discontinued"
+    },
+    {
+      "hashkey": "IMP.Products.ProductID.ProductID",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "ProductID",
+      "table_column_name": "ProductID"
+    },
+    {
+      "hashkey": "IMP.Products.ProductName.ProductName",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "ProductName",
+      "table_column_name": "ProductName"
+    },
+    {
+      "hashkey": "IMP.Products.QuantityPerUnit.QuantityPerUnit",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "QuantityPerUnit",
+      "table_column_name": "QuantityPerUnit"
+    },
+    {
+      "hashkey": "IMP.Products.ReorderLevel.ReorderLevel",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "ReorderLevel",
+      "table_column_name": "ReorderLevel"
+    },
+    {
+      "hashkey": "IMP.Products.SupplierID.SupplierID",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "SupplierID",
+      "table_column_name": "SupplierID"
+    },
+    {
+      "hashkey": "IMP.Products.UnitPrice.UnitPrice",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "UnitPrice",
+      "table_column_name": "UnitPrice"
+    },
+    {
+      "hashkey": "IMP.Products.UnitsInStock.UnitsInStock",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "UnitsInStock",
+      "table_column_name": "UnitsInStock"
+    },
+    {
+      "hashkey": "IMP.Products.UnitsOnOrder.UnitsOnOrder",
+      "hashkeyParent": "IMP.Products",
+      "source_column_name": "UnitsOnOrder",
+      "table_column_name": "UnitsOnOrder"
+    }
+  ]
+}

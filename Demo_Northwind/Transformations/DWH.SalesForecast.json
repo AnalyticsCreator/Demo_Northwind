@@ -1,0 +1,40 @@
+{
+  "hashkey": "DWH.SalesForecast",
+  "hashkeyParent": "DWH",
+  "transTypeID": 5,
+  "schema_Name": "DWH",
+  "transformation_Name": "SalesForecast",
+  "createDummyEntry": false,
+  "transHistTypeID": 5,
+  "viewDefinition": "SET XACT_ABORT ON;\r\n\r\nBEGIN TRY\r\n    BEGIN TRANSACTION;\r\n\r\n    TRUNCATE TABLE [DWH].[SalesInfoForecast];\r\n\r\n    INSERT INTO [DWH].[SalesInfoForecast]\r\n        ([CustomerID], [Month], [ProductID], [Total], [Year])\r\n    EXEC sys.sp_execute_external_script\r\n        @language = N'Python',\r\n\r\n        @input_data_1 = N'\r\n            SELECT [CustomerID], [Month], [ProductID], [Total], [Year]\r\n            FROM [TRN].[SalesInfo];\r\n        ',\r\n\r\n        @script = N'\r\nimport pandas as pd\r\nimport math\r\n\r\n# Source data\r\ninput_df = InputDataSet.copy()\r\n\r\n# Output schema aligned with the target table\r\noutput_types = {\r\n    \"CustomerID\": \"object\",\r\n    \"Month\": \"int32\",\r\n    \"ProductID\": \"int32\",\r\n    \"Total\": \"float64\",\r\n    \"Year\": \"int32\"\r\n}\r\n\r\nFORECAST_MONTHS = 6\r\nHISTORY_MONTHS = 12\r\n\r\nrows = []\r\n\r\nif not input_df.empty:\r\n    required_columns = list(output_types)\r\n\r\n    missing_columns = [\r\n        column for column in required_columns\r\n        if column not in input_df.columns\r\n    ]\r\n    if missing_columns:\r\n        raise ValueError(\r\n            \"Missing input columns: \" + \", \".join(missing_columns)\r\n        )\r\n\r\n    if input_df[required_columns].isna().any().any():\r\n        raise ValueError(\"Input columns must not contain NULL values.\")\r\n\r\n    # Normalize and validate numeric columns.\r\n    for column in [\"Month\", \"ProductID\", \"Total\", \"Year\"]:\r\n        input_df[column] = pd.to_numeric(\r\n            input_df[column], errors=\"raise\"\r\n        )\r\n\r\n        if not input_df[column].map(math.isfinite).all():\r\n            raise ValueError(\r\n                column + \" contains missing or non-finite values.\"\r\n            )\r\n\r\n    for column in [\"Month\", \"ProductID\", \"Year\"]:\r\n        if not (input_df[column] % 1 == 0).all():\r\n            raise ValueError(column + \" must contain whole numbers.\")\r\n\r\n        if not input_df[column].between(\r\n            -2147483648, 2147483647\r\n        ).all():\r\n            raise ValueError(column + \" is outside the SQL int range.\")\r\n\r\n        input_df[column] = input_df[column].astype(\"int32\")\r\n\r\n    if not input_df[\"Month\"].between(1, 12).all():\r\n        raise ValueError(\"Month must be between 1 and 12.\")\r\n\r\n    input_df[\"CustomerID\"] = input_df[\"CustomerID\"].astype(str)\r\n    input_df[\"Total\"] = input_df[\"Total\"].astype(\"float64\")\r\n\r\n    # Internal date used for monthly aggregation and year rollover.\r\n    input_df[\"Date\"] = pd.to_datetime(\r\n        {\r\n            \"year\": input_df[\"Year\"],\r\n            \"month\": input_df[\"Month\"],\r\n            \"day\": 1\r\n        },\r\n        errors=\"raise\"\r\n    )\r\n\r\n    # Aggregate any duplicate customer/product/month records.\r\n    monthly_sales = (\r\n        input_df.groupby(\r\n            [\"CustomerID\", \"ProductID\", \"Date\"],\r\n            as_index=False\r\n        )[\"Total\"]\r\n        .sum()\r\n    )\r\n\r\n    # All combinations share the same forecast period.\r\n    last_month = monthly_sales[\"Date\"].max()\r\n\r\n    forecast_dates = pd.date_range(\r\n        start=last_month + pd.offsets.MonthBegin(1),\r\n        periods=FORECAST_MONTHS,\r\n        freq=\"MS\"\r\n    )\r\n\r\n    for (customer_id, product_id), group in monthly_sales.groupby(\r\n        [\"CustomerID\", \"ProductID\"]\r\n    ):\r\n        # Use up to 12 months through the common historical cutoff.\r\n        # Do not include months before the first observed sale.\r\n        history_start = max(\r\n            group[\"Date\"].min(),\r\n            last_month - pd.DateOffset(months=HISTORY_MONTHS - 1)\r\n        )\r\n\r\n        history_dates = pd.date_range(\r\n            start=history_start,\r\n            end=last_month,\r\n            freq=\"MS\"\r\n        )\r\n\r\n        # Missing months within this period count as zero sales.\r\n        sales = (\r\n            group.set_index(\"Date\")[\"Total\"]\r\n            .reindex(history_dates, fill_value=0.0)\r\n            .astype(\"float64\")\r\n        )\r\n\r\n        values = sales.tolist()\r\n        count = len(values)\r\n\r\n        mean_sales = sum(values) / count\r\n        mean_index = (count - 1) / 2.0\r\n        slope = 0.0\r\n\r\n        # Fit a least-squares linear trend.\r\n        # For fewer than three months, retain a flat average.\r\n        if count >= 3:\r\n            numerator = sum(\r\n                (index - mean_index) * (total - mean_sales)\r\n                for index, total in enumerate(values)\r\n            )\r\n            denominator = sum(\r\n                (index - mean_index) ** 2\r\n                for index in range(count)\r\n            )\r\n            slope = numerator / denominator\r\n\r\n        for step, forecast_date in enumerate(forecast_dates):\r\n            future_index = count + step\r\n\r\n            forecast_total = (\r\n                mean_sales + slope * (future_index - mean_index)\r\n            )\r\n\r\n            if not math.isfinite(forecast_total):\r\n                raise ValueError(\r\n                    \"Forecast produced a non-finite value.\"\r\n                )\r\n\r\n            rows.append({\r\n                \"CustomerID\": customer_id,\r\n                \"Month\": forecast_date.month,\r\n                \"ProductID\": product_id,\r\n                \"Total\": max(0.0, float(forecast_total)),\r\n                \"Year\": forecast_date.year\r\n            })\r\n\r\n# Column order must match INSERT ... EXEC.\r\n# An empty source produces an empty result with the correct schema.\r\nOutputDataSet = pd.DataFrame(\r\n    rows,\r\n    columns=list(output_types)\r\n).astype(output_types)\r\n';\r\n\r\n    COMMIT TRANSACTION;\r\nEND TRY\r\nBEGIN CATCH\r\n    IF XACT_STATE() <> 0\r\n        ROLLBACK TRANSACTION;\r\n\r\n    THROW;\r\nEND CATCH;",
+  "persistPackage_Name": "SCRIPT_Forecast",
+  "table_hash": "DWH.SalesForecast",
+  "persistPackage_hash": "SCRIPT_Forecast",
+  "isCreated": true,
+  "isFact": false,
+  "createResultTable": true,
+  "isDistinct": false,
+  "scriptTypeID": 3,
+  "scriptTran_NoDependencies": false,
+  "use_existing": 0,
+  "iTransformationTables": [
+    {
+      "hashkey": "DWH.SalesForecast.1",
+      "hashkeyParent": "DWH.SalesForecast",
+      "sequenceNumber": 1,
+      "table_hash": "TRN.SalesInfo",
+      "tableAlias": "T1",
+      "joinHistTypeID": 1,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    }
+  ],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

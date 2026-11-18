@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_Employees",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_Employees",
+  "createDummyEntry": false,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_Employees] AS\r\nSELECT\r\n\tT1.[SATZ_ID],\r\n\tT1.[DAT_VON_HIST],\r\n\tT1.[DAT_BIS_HIST],\r\n\tT1.[LastName],\r\n\tT1.[FirstName],\r\n\tT1.[Title],\r\n\tT1.[TitleOfCourtesy],\r\n\tT1.[BirthDate],\r\n\tT1.[HireDate],\r\n\tT1.[Address],\r\n\tT1.[City],\r\n\tT1.[Region],\r\n\tT1.[PostalCode],\r\n\tT1.[Country],\r\n\tT1.[HomePhone],\r\n\tT1.[Extension],\r\n\tT1.[Photo],\r\n\tT1.[Notes],\r\n\tT1.[ReportsTo],\r\n\tT1.[PhotoPath],\r\n\tT1.[EmployeeID]\r\nFROM\r\n\t[DWH].[DIM_Employees] T1",
+  "table_hash": "STAR.DIM_Employees",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_Employees",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

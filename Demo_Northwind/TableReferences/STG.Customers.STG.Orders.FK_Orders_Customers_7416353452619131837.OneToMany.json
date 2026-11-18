@@ -1,0 +1,21 @@
+{
+  "hashkey": "STG.Customers.STG.Orders.FK_Orders_Customers_7416353452619131837.OneToMany",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "table1_hash": "STG.Customers",
+  "table2_hash": "STG.Orders",
+  "description": "FK_Orders_Customers_7416353452619131837",
+  "parentDescription": "FK_Orders_Customers",
+  "autoCreated": true,
+  "inactive": false,
+  "inheritance": 0,
+  "use_existing": 0,
+  "iTableReferenceColumns": [
+    {
+      "hashkey": "STG.Customers.STG.Orders.FK_Orders_Customers_7416353452619131837.CustomerID.CustomerID",
+      "hashkeyParent": "STG.Customers.STG.Orders.FK_Orders_Customers_7416353452619131837.OneToMany",
+      "column_Name1": "CustomerID",
+      "column_Name2": "CustomerID"
+    }
+  ]
+}

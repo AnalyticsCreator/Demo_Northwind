@@ -1,0 +1,8 @@
+{
+  "hashkey": ".Update column dependencies",
+  "name": "Update column dependencies",
+  "description": "Update all column dependencies in repository",
+  "statement": "/*\r\nUpdate all column dependencies in repository\r\n*/\r\n\r\nEXEC CFG.UPDATE_COLUMN_DEPENDENCIES",
+  "iObjectScriptParams": [],
+  "use_existing": 0
+}

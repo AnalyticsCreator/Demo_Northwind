@@ -1,0 +1,7 @@
+{
+  "hashkey": "XmlToString",
+  "name": "XmlToString",
+  "checkStatement": "SrcType IN ('xml')",
+  "transStatement": "'CONVERT(varchar(8000), CONVERT(nvarchar(max), ' + Column_Name + '))'",
+  "use_existing": 0
+}

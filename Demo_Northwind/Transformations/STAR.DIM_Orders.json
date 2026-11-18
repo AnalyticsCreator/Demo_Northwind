@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_Orders",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_Orders",
+  "createDummyEntry": false,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_Orders] AS\r\nSELECT\r\n\tT1.[SATZ_ID],\r\n\tT1.[DAT_VON_HIST],\r\n\tT1.[DAT_BIS_HIST],\r\n\tT1.[CustomerID],\r\n\tT1.[EmployeeID],\r\n\tT1.[OrderDate],\r\n\tT1.[RequiredDate],\r\n\tT1.[ShippedDate],\r\n\tT1.[ShipVia],\r\n\tT1.[Freight],\r\n\tT1.[ShipName],\r\n\tT1.[ShipAddress],\r\n\tT1.[ShipCity],\r\n\tT1.[ShipRegion],\r\n\tT1.[ShipPostalCode],\r\n\tT1.[ShipCountry],\r\n\tT1.[OrderID]\r\nFROM\r\n\t[DWH].[DIM_Orders] T1",
+  "table_hash": "STAR.DIM_Orders",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_Orders",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

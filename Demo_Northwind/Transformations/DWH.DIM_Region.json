@@ -1,0 +1,157 @@
+{
+  "hashkey": "DWH.DIM_Region",
+  "hashkeyParent": "DWH",
+  "transTypeID": 1,
+  "schema_Name": "DWH",
+  "transformation_Name": "DIM_Region",
+  "createDummyEntry": true,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [DWH].[DIM_Region] AS\r\nSELECT\r\n\t[SATZ_ID] = ISNULL([T1].[SATZ_ID], 0),\r\n\t[DAT_VON_HIST] = [T1].[DAT_VON_HIST],\r\n\t[DAT_BIS_HIST] = [T1].[DAT_BIS_HIST],\r\n\t[RegionDescription] = ISNULL([T1].[RegionDescription], 'N.A.'),\r\n\t[RegionID] = ISNULL([T1].[RegionID], 0)\r\nFROM\r\n\t[STG].[Region] T1 (NOLOCK)\r\nWHERE\r\n\t1 = 1\r\nUNION ALL SELECT \r\n\t[SATZ_ID] = 0,\r\n\t[DAT_VON_HIST] = '19000101',\r\n\t[DAT_BIS_HIST] = '99991231',\r\n\t[RegionDescription] = ISNULL(NULL, 'N.A.'),\r\n\t[RegionID] = ISNULL(NULL, 0)",
+  "table_hash": "DWH.DIM_Region",
+  "isCreated": true,
+  "isFact": false,
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [
+    {
+      "hashkey": "DWH.DIM_Region.1",
+      "hashkeyParent": "DWH.DIM_Region",
+      "sequenceNumber": 1,
+      "table_hash": "STG.Region",
+      "tableAlias": "T1",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    }
+  ],
+  "iTransformationColumns": [
+    {
+      "hashkey": "DWH.DIM_Region.DAT_BIS_HIST.1",
+      "hashkeyParent": "DWH.DIM_Region",
+      "columnName": "DAT_BIS_HIST",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "DAT_BIS_HIST",
+      "isAggregate": false,
+      "defaultValue": "'99991231'",
+      "description": "Region: End of validity period",
+      "sequenceNumber": 3,
+      "friendlyName": "Region_ValidTo"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.DAT_VON_HIST.1",
+      "hashkeyParent": "DWH.DIM_Region",
+      "columnName": "DAT_VON_HIST",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "DAT_VON_HIST",
+      "isAggregate": false,
+      "defaultValue": "'19000101'",
+      "description": "Region: Start of validity period",
+      "sequenceNumber": 2,
+      "friendlyName": "Region_ValidFrom"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.RegionDescription.1",
+      "hashkeyParent": "DWH.DIM_Region",
+      "columnName": "RegionDescription",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "RegionDescription",
+      "isAggregate": false,
+      "sequenceNumber": 4
+    },
+    {
+      "hashkey": "DWH.DIM_Region.RegionID.1",
+      "hashkeyParent": "DWH.DIM_Region",
+      "columnName": "RegionID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "RegionID",
+      "isAggregate": false,
+      "sequenceNumber": 5,
+      "pK_Ordinal_Position": 1
+    },
+    {
+      "hashkey": "DWH.DIM_Region.SATZ_ID.1",
+      "hashkeyParent": "DWH.DIM_Region",
+      "columnName": "SATZ_ID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T1].[SATZ_ID], 0)",
+      "sequenceNumber": 1,
+      "friendlyName": "Region"
+    }
+  ],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [
+    {
+      "hashkey": "DWH.DIM_Region.Anonymization",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "Anonymization"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.BinaryToStr",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "BinaryToStr"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.HierarchyToString",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "HierarchyToString"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.NumberNULLToZero",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "NumberNULLToZero"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.StringMaxTo8000",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "StringMaxTo8000"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.StringNULLToNA",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "StringNULLToNA"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.TimeToDatetime",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "TimeToDatetime"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.Trim",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "Trim"
+    },
+    {
+      "hashkey": "DWH.DIM_Region.XmlToString",
+      "hashkeyParent": "DWH.DIM_Region",
+      "useWithVault": true,
+      "preTrans_hash": "XmlToString"
+    }
+  ],
+  "iTransformationStars": [
+    {
+      "hashkey": "DWH.DIM_Region.Star.STAR.DIM_Region",
+      "hashkeyParent": "DWH.DIM_Region",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_Region",
+      "star_TransformationID_hash": "STAR.DIM_Region",
+      "isFact": false
+    }
+  ],
+  "iTransformationSnapshots": []
+}

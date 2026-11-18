@@ -1,0 +1,77 @@
+{
+  "hashkey": "IMP.Customers",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.Customers",
+  "source_hash": "NW.dbo.Customers",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Customers.Address.Address",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "Address",
+      "table_column_name": "Address"
+    },
+    {
+      "hashkey": "IMP.Customers.City.City",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "City",
+      "table_column_name": "City"
+    },
+    {
+      "hashkey": "IMP.Customers.CompanyName.CompanyName",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "CompanyName",
+      "table_column_name": "CompanyName"
+    },
+    {
+      "hashkey": "IMP.Customers.ContactName.ContactName",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "ContactName",
+      "table_column_name": "ContactName"
+    },
+    {
+      "hashkey": "IMP.Customers.ContactTitle.ContactTitle",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "ContactTitle",
+      "table_column_name": "ContactTitle"
+    },
+    {
+      "hashkey": "IMP.Customers.Country.Country",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "Country",
+      "table_column_name": "Country"
+    },
+    {
+      "hashkey": "IMP.Customers.CustomerID.CustomerID",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "CustomerID",
+      "table_column_name": "CustomerID"
+    },
+    {
+      "hashkey": "IMP.Customers.Fax.Fax",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "Fax",
+      "table_column_name": "Fax"
+    },
+    {
+      "hashkey": "IMP.Customers.Phone.Phone",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "Phone",
+      "table_column_name": "Phone"
+    },
+    {
+      "hashkey": "IMP.Customers.PostalCode.PostalCode",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "PostalCode",
+      "table_column_name": "PostalCode"
+    },
+    {
+      "hashkey": "IMP.Customers.Region.Region",
+      "hashkeyParent": "IMP.Customers",
+      "source_column_name": "Region",
+      "table_column_name": "Region"
+    }
+  ]
+}

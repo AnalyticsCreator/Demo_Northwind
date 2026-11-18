@@ -1,0 +1,6 @@
+{
+  "hashkey": "TRANSFORMATION_HIST_ID_PATTERN",
+  "param_Name": "TRANSFORMATION_HIST_ID_PATTERN",
+  "param_Value": "FK_{TableName}",
+  "use_existing": 0
+}

@@ -1,0 +1,166 @@
+{
+  "hashkey": "DWH.DIM_Territories",
+  "hashkeyParent": "DWH",
+  "transTypeID": 1,
+  "schema_Name": "DWH",
+  "transformation_Name": "DIM_Territories",
+  "createDummyEntry": true,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [DWH].[DIM_Territories] AS\r\nSELECT\r\n\t[SATZ_ID] = ISNULL([T1].[SATZ_ID], 0),\r\n\t[DAT_VON_HIST] = [T1].[DAT_VON_HIST],\r\n\t[DAT_BIS_HIST] = [T1].[DAT_BIS_HIST],\r\n\t[TerritoryDescription] = ISNULL([T1].[TerritoryDescription], 'N.A.'),\r\n\t[RegionID] = ISNULL([T1].[RegionID], 0),\r\n\t[TerritoryID] = RTRIM(LTRIM(ISNULL([T1].[TerritoryID], 'N.A.')))\r\nFROM\r\n\t[STG].[Territories] T1 (NOLOCK)\r\nWHERE\r\n\t1 = 1\r\nUNION ALL SELECT \r\n\t[SATZ_ID] = 0,\r\n\t[DAT_VON_HIST] = '19000101',\r\n\t[DAT_BIS_HIST] = '99991231',\r\n\t[TerritoryDescription] = ISNULL(NULL, 'N.A.'),\r\n\t[RegionID] = ISNULL(NULL, 0),\r\n\t[TerritoryID] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.')))",
+  "table_hash": "DWH.DIM_Territories",
+  "isCreated": true,
+  "isFact": false,
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [
+    {
+      "hashkey": "DWH.DIM_Territories.1",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "sequenceNumber": 1,
+      "table_hash": "STG.Territories",
+      "tableAlias": "T1",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    }
+  ],
+  "iTransformationColumns": [
+    {
+      "hashkey": "DWH.DIM_Territories.DAT_BIS_HIST.1",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "columnName": "DAT_BIS_HIST",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "DAT_BIS_HIST",
+      "isAggregate": false,
+      "defaultValue": "'99991231'",
+      "description": "Territories: End of validity period",
+      "sequenceNumber": 3,
+      "friendlyName": "Territories_ValidTo"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.DAT_VON_HIST.1",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "columnName": "DAT_VON_HIST",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "DAT_VON_HIST",
+      "isAggregate": false,
+      "defaultValue": "'19000101'",
+      "description": "Territories: Start of validity period",
+      "sequenceNumber": 2,
+      "friendlyName": "Territories_ValidFrom"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.RegionID.1",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "columnName": "RegionID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "RegionID",
+      "isAggregate": false,
+      "sequenceNumber": 5
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.SATZ_ID.1",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "columnName": "SATZ_ID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T1].[SATZ_ID], 0)",
+      "sequenceNumber": 1,
+      "friendlyName": "Territories"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.TerritoryDescription.1",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "columnName": "TerritoryDescription",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "TerritoryDescription",
+      "isAggregate": false,
+      "sequenceNumber": 4
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.TerritoryID.1",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "columnName": "TerritoryID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "TerritoryID",
+      "isAggregate": false,
+      "sequenceNumber": 6,
+      "pK_Ordinal_Position": 1
+    }
+  ],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [
+    {
+      "hashkey": "DWH.DIM_Territories.Anonymization",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "Anonymization"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.BinaryToStr",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "BinaryToStr"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.HierarchyToString",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "HierarchyToString"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.NumberNULLToZero",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "NumberNULLToZero"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.StringMaxTo8000",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "StringMaxTo8000"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.StringNULLToNA",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "StringNULLToNA"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.TimeToDatetime",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "TimeToDatetime"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.Trim",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "Trim"
+    },
+    {
+      "hashkey": "DWH.DIM_Territories.XmlToString",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "useWithVault": true,
+      "preTrans_hash": "XmlToString"
+    }
+  ],
+  "iTransformationStars": [
+    {
+      "hashkey": "DWH.DIM_Territories.Star.STAR.DIM_Territories",
+      "hashkeyParent": "DWH.DIM_Territories",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_Territories",
+      "star_TransformationID_hash": "STAR.DIM_Territories",
+      "isFact": false
+    }
+  ],
+  "iTransformationSnapshots": []
+}

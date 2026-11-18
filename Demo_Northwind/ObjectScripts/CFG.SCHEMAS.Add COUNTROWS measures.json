@@ -1,0 +1,9 @@
+{
+  "hashkey": "CFG.SCHEMAS.Add COUNTROWS measures",
+  "table": "CFG.SCHEMAS",
+  "name": "Add COUNTROWS measures",
+  "description": "Add missing COUNTROWS measures to every datamart table in specific schema",
+  "statement": "/*\r\nAdd missing COUNTROWS measures to every datamart table in specific schema\r\n*/\r\n\r\nDECLARE @Folder sysname\r\nSET @Folder = CFG.GET_PARAM_VALUE('MEASURE_DEFAULT_DISPLAY_FOLDER')\r\n\r\nINSERT INTO CFG.MEASURES([TableID], [Name], [StatementTAB], [OLAP_DisplayFolder], [IsHidden])\r\nSELECT T.TableID, 'count_rows ({TableName})', 'COUNTROWS(''{TableName}'')', @Folder, 0\r\nFROM\r\n\tCFG.TABLES T\r\nWHERE\r\n\tT.SchemaID = :1 AND\r\n\tT.TableTypeID IN (7,8,9,10) AND\r\n\tNOT EXISTS (SELECT 1 FROM CFG.MEASURES M WHERE M.TableID = T.TableID AND M.Name = 'count_rows ({TableName})')\r\n",
+  "iObjectScriptParams": [],
+  "use_existing": 0
+}

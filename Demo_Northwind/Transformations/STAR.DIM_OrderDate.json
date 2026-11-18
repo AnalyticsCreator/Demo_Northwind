@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_OrderDate",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_OrderDate",
+  "createDummyEntry": false,
+  "transHistTypeID": 5,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_OrderDate] AS\r\nSELECT\r\n\tT1.[CurrentDate],\r\n\tT1.[CurrentMonth],\r\n\tT1.[CurrentYear],\r\n\tT1.[Date],\r\n\tT1.[Day],\r\n\tT1.[ISO_Week],\r\n\tT1.[LongDate],\r\n\tT1.[Month],\r\n\tT1.[PrevMonth],\r\n\tT1.[SATZ_ID],\r\n\tT1.[ShortDate],\r\n\tT1.[VeryShortDate],\r\n\tT1.[Week],\r\n\tT1.[Weekday],\r\n\tT1.[Year]\r\nFROM\r\n\t[DWH].[DIM_Calendar] T1",
+  "table_hash": "STAR.DIM_OrderDate",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_Calendar",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

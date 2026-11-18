@@ -1,0 +1,20 @@
+{
+  "hashkey": "NW.dbo.Customers.dbo.Orders.FK_Orders_Customers.OneToMany",
+  "hashkeyParent": "NW",
+  "cardinalityTypeID": 3,
+  "joinTypeID": 1,
+  "source_Schema1": "dbo",
+  "source_Name1": "Customers",
+  "source_Schema2": "dbo",
+  "source_Name2": "Orders",
+  "description": "FK_Orders_Customers",
+  "inheritance": 0,
+  "iSourceReferenceColumns": [
+    {
+      "hashkey": "NW.dbo.Customers.dbo.Orders.FK_Orders_Customers.CustomerID.CustomerID",
+      "column_Name1": "CustomerID",
+      "column_Name2": "CustomerID"
+    }
+  ],
+  "use_existing": 0
+}

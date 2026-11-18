@@ -1,0 +1,8 @@
+{
+  "hashkey": ".Update anonymization",
+  "name": "Update anonymization",
+  "description": "Update all object anonymization properties in repository",
+  "statement": "/*\r\nUpdate all object anonymization properties in repository\r\n*/\r\n\r\nEXEC CFG.UPDATE_ANONYMIZATION",
+  "iObjectScriptParams": [],
+  "use_existing": 0
+}

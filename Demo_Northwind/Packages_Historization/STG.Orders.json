@@ -1,0 +1,121 @@
+{
+  "hashkey": "STG.Orders",
+  "hashkeyParent": "HIST_NW1",
+  "table_hash": "STG.Orders",
+  "insertOnly": false,
+  "do_not_close": 0,
+  "deleteFutureHist": true,
+  "checkSrcDuplicates": true,
+  "updateStatistics": true,
+  "truncate": false,
+  "useLogging": true,
+  "histType": 1,
+  "procedure": "CREATE PROCEDURE [CFG].[HIST_STG_Orders] AS\r\nBEGIN\r\n\tSET NOCOUNT ON\r\n\t\r\n\tDECLARE @StartDate datetime = GETDATE()\r\n\tDECLARE\t\r\n\t\t@StartDateStr varchar(30) = CONVERT(varchar(30), @StartDate, 121),\r\n\t\t@CloseDate datetime = DATEADD(ms, -2, @StartDate),\r\n\t\t@Inserted int = 0, \r\n\t\t@Deleted int = 0, \r\n\t\t@Updated int = 0\r\n\t\r\n\tEXEC [LOG].[PACKAGE_RUN_LOG_ENTRY] \r\n\t\t@PackageName = 'HIST_STG_Orders', \r\n\t\t@TableName = '[STG].[Orders]', \r\n\t\t@StartTimeStr = @StartDateStr, \r\n\t\t@Inserted = NULL, \r\n\t\t@Updated = NULL, \r\n\t\t@Deleted = NULL\r\n\r\n\tIF EXISTS(SELECT TOP 1 1 FROM [IMP].[Orders] GROUP BY [OrderID] HAVING COUNT(*) > 1)\r\n\tBEGIN\r\n\t\tRAISERROR('Table [IMP].[Orders] contains duplicated data and cannot be historized', 16, 1)\r\n\t\tRETURN\r\n\tEND\r\n\r\n\tIF EXISTS(SELECT 1 FROM [STG].[Orders] WHERE [DAT_VON_HIST] >= @StartDate)\r\n\t\tDELETE FROM [STG].[Orders] WHERE [DAT_VON_HIST] >= @StartDate\r\n\r\n\tIF EXISTS(SELECT 1 FROM [STG].[Orders] WHERE @StartDate BETWEEN [DAT_VON_HIST] AND [DAT_BIS_HIST] AND [DAT_BIS_HIST] <> '99991231')\r\n\t\tUPDATE [STG].[Orders]\r\n\t\t\tSET [DAT_BIS_HIST] = '99991231'\r\n\t\tWHERE \r\n\t\t\t@StartDate BETWEEN [DAT_VON_HIST] AND [DAT_BIS_HIST] AND [DAT_BIS_HIST] <> '99991231'\r\n\r\n\tIF NOT EXISTS (SELECT 1 FROM [STG].[Orders] WHERE [DAT_BIS_HIST] = '99991231')\r\n\tBEGIN\r\n\t\tINSERT INTO [STG].[Orders](\r\n\t\t\t[CustomerID],\r\n\t\t\t[EmployeeID],\r\n\t\t\t[Freight],\r\n\t\t\t[OrderDate],\r\n\t\t\t[OrderID],\r\n\t\t\t[RequiredDate],\r\n\t\t\t[ShipAddress],\r\n\t\t\t[ShipCity],\r\n\t\t\t[ShipCountry],\r\n\t\t\t[ShipName],\r\n\t\t\t[ShippedDate],\r\n\t\t\t[ShipPostalCode],\r\n\t\t\t[ShipRegion],\r\n\t\t\t[ShipVia],\r\n\t\t\t[DAT_VON_HIST],\r\n\t\t\t[DAT_BIS_HIST])\r\n\t\tSELECT \r\n\t\t\tI.[CustomerID],\r\n\t\t\tI.[EmployeeID],\r\n\t\t\tI.[Freight],\r\n\t\t\tI.[OrderDate],\r\n\t\t\tI.[OrderID],\r\n\t\t\tI.[RequiredDate],\r\n\t\t\tI.[ShipAddress],\r\n\t\t\tI.[ShipCity],\r\n\t\t\tI.[ShipCountry],\r\n\t\t\tI.[ShipName],\r\n\t\t\tI.[ShippedDate],\r\n\t\t\tI.[ShipPostalCode],\r\n\t\t\tI.[ShipRegion],\r\n\t\t\tI.[ShipVia], \r\n\t\t\t@StartDate, \r\n\t\t\t'99991231'\r\n\t\tFROM \r\n\t\t\t[IMP].[Orders] I\r\n\r\n\t\tSET @Inserted = @Inserted + @@ROWCOUNT\r\n\r\n\t\tGOTO FINISH\r\n\tEND\r\n\r\n\tCREATE TABLE #T \r\n\t(\r\n\t\t[CustomerID] nchar(5),\r\n\t\t[EmployeeID] int,\r\n\t\t[Freight] money,\r\n\t\t[OrderDate] datetime,\r\n\t\t[OrderID] int,\r\n\t\t[RequiredDate] datetime,\r\n\t\t[ShipAddress] nvarchar(60),\r\n\t\t[ShipCity] nvarchar(15),\r\n\t\t[ShipCountry] nvarchar(15),\r\n\t\t[ShipName] nvarchar(40),\r\n\t\t[ShippedDate] datetime,\r\n\t\t[ShipPostalCode] nvarchar(10),\r\n\t\t[ShipRegion] nvarchar(15),\r\n\t\t[ShipVia] int,\r\n\t\t[SATZ_ID] bigint, \r\n\t\t[DAT_VON_HIST] datetime,\r\n\t\tHIST_SCD_TYPE int,\r\n\t\t[DAT_BIS_HIST_PREV] datetime\r\n\t)\r\n\r\n\tINSERT INTO #T([CustomerID],\r\n\t\t[EmployeeID],\r\n\t\t[Freight],\r\n\t\t[OrderDate],\r\n\t\t[OrderID],\r\n\t\t[RequiredDate],\r\n\t\t[ShipAddress],\r\n\t\t[ShipCity],\r\n\t\t[ShipCountry],\r\n\t\t[ShipName],\r\n\t\t[ShippedDate],\r\n\t\t[ShipPostalCode],\r\n\t\t[ShipRegion],\r\n\t\t[ShipVia], \r\n\t\t[SATZ_ID], \r\n\t\t[DAT_VON_HIST], \r\n\t\tHIST_SCD_TYPE, \r\n\t\t[DAT_BIS_HIST_PREV])\r\n\tSELECT\r\n\t\tI.[CustomerID],\r\n\t\tI.[EmployeeID],\r\n\t\tI.[Freight],\r\n\t\tI.[OrderDate],\r\n\t\tI.[OrderID],\r\n\t\tI.[RequiredDate],\r\n\t\tI.[ShipAddress],\r\n\t\tI.[ShipCity],\r\n\t\tI.[ShipCountry],\r\n\t\tI.[ShipName],\r\n\t\tI.[ShippedDate],\r\n\t\tI.[ShipPostalCode],\r\n\t\tI.[ShipRegion],\r\n\t\tI.[ShipVia], \r\n\t\tS.[SATZ_ID],\r\n\t\tS.[DAT_VON_HIST],\r\n\t\t2 HIST_SCD_TYPE,\r\n\t\tNULL\r\n\tFROM\r\n\t(\r\n\t\tSELECT\r\n\t\t\t[CustomerID],\r\n\t\t\t[EmployeeID],\r\n\t\t\t[Freight],\r\n\t\t\t[OrderDate],\r\n\t\t\t[OrderID],\r\n\t\t\t[RequiredDate],\r\n\t\t\t[ShipAddress],\r\n\t\t\t[ShipCity],\r\n\t\t\t[ShipCountry],\r\n\t\t\t[ShipName],\r\n\t\t\t[ShippedDate],\r\n\t\t\t[ShipPostalCode],\r\n\t\t\t[ShipRegion],\r\n\t\t\t[ShipVia]\r\n\t\tFROM\r\n\t\t\t[IMP].[Orders] I\r\n\t\tEXCEPT SELECT \r\n\t\t\t[CustomerID],\r\n\t\t\t[EmployeeID],\r\n\t\t\t[Freight],\r\n\t\t\t[OrderDate],\r\n\t\t\t[OrderID],\r\n\t\t\t[RequiredDate],\r\n\t\t\t[ShipAddress],\r\n\t\t\t[ShipCity],\r\n\t\t\t[ShipCountry],\r\n\t\t\t[ShipName],\r\n\t\t\t[ShippedDate],\r\n\t\t\t[ShipPostalCode],\r\n\t\t\t[ShipRegion],\r\n\t\t\t[ShipVia]\r\n\t\tFROM\r\n\t\t\t[STG].[Orders] S (NOLOCK)\r\n\t\tWHERE \r\n\t\t\t[DAT_BIS_HIST] = '99991231'\r\n\t) I\r\n\tLEFT JOIN [STG].[Orders] S (NOLOCK) ON\r\n\t\tS.[DAT_BIS_HIST] = '99991231' AND\r\n\t\t(S.[OrderID] = I.[OrderID])\r\n\r\n\tUPDATE H\r\n\tSET [DAT_BIS_HIST] = @CloseDate\r\n\tFROM\r\n\t\t#T T\r\n\t\tINNER JOIN [STG].[Orders] H ON\r\n\t\t\tH.[SATZ_ID] = T.[SATZ_ID]\r\n\tWHERE\r\n\t\tT.[SATZ_ID] IS NOT NULL AND\r\n\t\tT.HIST_SCD_TYPE = 2 AND\r\n\t\tT.[DAT_VON_HIST] < @StartDate\r\n\r\n\tSET @Updated = @Updated + @@ROWCOUNT\r\n\r\n\tINSERT INTO [STG].[Orders]([CustomerID],\r\n\t\t[EmployeeID],\r\n\t\t[Freight],\r\n\t\t[OrderDate],\r\n\t\t[OrderID],\r\n\t\t[RequiredDate],\r\n\t\t[ShipAddress],\r\n\t\t[ShipCity],\r\n\t\t[ShipCountry],\r\n\t\t[ShipName],\r\n\t\t[ShippedDate],\r\n\t\t[ShipPostalCode],\r\n\t\t[ShipRegion],\r\n\t\t[ShipVia], [DAT_VON_HIST], [DAT_BIS_HIST])\r\n\tSELECT \r\n\t\t[CustomerID],\r\n\t\t[EmployeeID],\r\n\t\t[Freight],\r\n\t\t[OrderDate],\r\n\t\t[OrderID],\r\n\t\t[RequiredDate],\r\n\t\t[ShipAddress],\r\n\t\t[ShipCity],\r\n\t\t[ShipCountry],\r\n\t\t[ShipName],\r\n\t\t[ShippedDate],\r\n\t\t[ShipPostalCode],\r\n\t\t[ShipRegion],\r\n\t\t[ShipVia], @StartDate, '99991231'\r\n\tFROM \r\n\t\t#T T\r\n\tWHERE\r\n\t\t([SATZ_ID] IS NULL OR HIST_SCD_TYPE = 2)\r\n\r\n\tSET @Inserted = @Inserted + @@ROWCOUNT\r\n\r\n\tUPDATE S\r\n\tSET \r\n\t\t[DAT_BIS_HIST] = @CloseDate\r\n\tFROM\r\n\t\t[STG].[Orders] S\r\n\tWHERE\r\n\t\t[DAT_BIS_HIST] = '99991231' AND\r\n\t\t[DAT_VON_HIST] < @StartDate AND\r\n\t\tNOT EXISTS \r\n\t\t(\r\n\t\tSELECT 1 FROM\r\n\t\t\t[IMP].[Orders] I (NOLOCK)\r\n\t\tWHERE\r\n\t\t\t(S.[OrderID] = I.[OrderID])\r\n\t\t)\r\n\r\n\tSET @Deleted = @Deleted + @@ROWCOUNT\r\nFINISH:\r\n\r\n\tUPDATE STATISTICS [STG].[Orders]\r\n\r\n\tEXEC [LOG].[PACKAGE_RUN_LOG_ENTRY] \r\n\t\t@PackageName = 'HIST_STG_Orders', \r\n\t\t@TableName = '[STG].[Orders]', \r\n\t\t@StartTimeStr = @StartDateStr, \r\n\t\t@Inserted = @Inserted, \r\n\t\t@Updated = @Updated, \r\n\t\t@Deleted = @Deleted\r\nEND",
+  "useVaultID": false,
+  "useExistingHistory": false,
+  "persistSource": false,
+  "exceptionIfEmptySource": 0,
+  "useHashJoin": 0,
+  "iHistColumnReferences": [
+    {
+      "hashkey": "STG.Orders.CustomerID",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "CustomerID",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.EmployeeID",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "EmployeeID",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.Freight",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "Freight",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.OrderDate",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "OrderDate",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.OrderID",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "OrderID",
+      "scD_Type": 2,
+      "emptyValue": "0",
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.RequiredDate",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "RequiredDate",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.ShipAddress",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "ShipAddress",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.ShipCity",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "ShipCity",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.ShipCountry",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "ShipCountry",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.ShipName",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "ShipName",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.ShipPostalCode",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "ShipPostalCode",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.ShipRegion",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "ShipRegion",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.ShipVia",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "ShipVia",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    },
+    {
+      "hashkey": "STG.Orders.ShippedDate",
+      "hashkeyParent": "STG.Orders",
+      "table_column_name": "ShippedDate",
+      "scD_Type": 2,
+      "emptyValueUseOld": false
+    }
+  ],
+  "iHistCalcColumns": []
+}

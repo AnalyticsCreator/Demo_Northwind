@@ -1,0 +1,6 @@
+{
+  "hashkey": "DWHWIZARD_LINK_PACKAGENAME",
+  "param_Name": "DWHWIZARD_LINK_PACKAGENAME",
+  "param_Value": "HIST_{CONNECTOR_NAME}_LINK{NR}",
+  "use_existing": 0
+}

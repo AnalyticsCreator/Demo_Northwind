@@ -1,0 +1,8 @@
+{
+  "hashkey": "SAPDate2ID",
+  "macroName": "SAPDate2ID",
+  "languageID": 2,
+  "statement": "@Date2ID(CONVERT(datetime, :1, 112))",
+  "table_hash": "DWH.DIM_Calendar",
+  "use_existing": 0
+}

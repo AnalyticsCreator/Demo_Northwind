@@ -1,0 +1,309 @@
+{
+  "hashkey": "DWH.DIM_Employees",
+  "hashkeyParent": "DWH",
+  "transTypeID": 1,
+  "schema_Name": "DWH",
+  "transformation_Name": "DIM_Employees",
+  "createDummyEntry": true,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [DWH].[DIM_Employees] AS\r\nSELECT\r\n\t[SATZ_ID] = ISNULL([T1].[SATZ_ID], 0),\r\n\t[DAT_VON_HIST] = [T1].[DAT_VON_HIST],\r\n\t[DAT_BIS_HIST] = [T1].[DAT_BIS_HIST],\r\n\t[LastName] = RTRIM(LTRIM(ISNULL([T1].[LastName], 'N.A.'))),\r\n\t[FirstName] = RTRIM(LTRIM(ISNULL([T1].[FirstName], 'N.A.'))),\r\n\t[Title] = RTRIM(LTRIM(ISNULL([T1].[Title], 'N.A.'))),\r\n\t[TitleOfCourtesy] = RTRIM(LTRIM(ISNULL([T1].[TitleOfCourtesy], 'N.A.'))),\r\n\t[BirthDate] = [T1].[BirthDate],\r\n\t[HireDate] = [T1].[HireDate],\r\n\t[Address] = RTRIM(LTRIM(ISNULL([T1].[Address], 'N.A.'))),\r\n\t[City] = RTRIM(LTRIM(ISNULL([T1].[City], 'N.A.'))),\r\n\t[Region] = RTRIM(LTRIM(ISNULL([T1].[Region], 'N.A.'))),\r\n\t[PostalCode] = RTRIM(LTRIM(ISNULL([T1].[PostalCode], 'N.A.'))),\r\n\t[Country] = RTRIM(LTRIM(ISNULL([T1].[Country], 'N.A.'))),\r\n\t[HomePhone] = RTRIM(LTRIM(ISNULL([T1].[HomePhone], 'N.A.'))),\r\n\t[Extension] = RTRIM(LTRIM(ISNULL([T1].[Extension], 'N.A.'))),\r\n\t[Photo] = [T1].[Photo],\r\n\t[Notes] = [T1].[Notes],\r\n\t[ReportsTo] = ISNULL([T1].[ReportsTo], 0),\r\n\t[PhotoPath] = RTRIM(LTRIM(ISNULL([T1].[PhotoPath], 'N.A.'))),\r\n\t[EmployeeID] = ISNULL([T1].[EmployeeID], 0)\r\nFROM\r\n\t[STG].[Employees] [T1] (NOLOCK)\r\nWHERE\r\n\t1 = 1\r\nUNION ALL SELECT \r\n\t[SATZ_ID] = 0,\r\n\t[DAT_VON_HIST] = '19000101',\r\n\t[DAT_BIS_HIST] = '99991231',\r\n\t[LastName] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[FirstName] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[Title] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[TitleOfCourtesy] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[BirthDate] = NULL,\r\n\t[HireDate] = NULL,\r\n\t[Address] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[City] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[Region] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[PostalCode] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[Country] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[HomePhone] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[Extension] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[Photo] = NULL,\r\n\t[Notes] = NULL,\r\n\t[ReportsTo] = ISNULL(NULL, 0),\r\n\t[PhotoPath] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[EmployeeID] = ISNULL(NULL, 0)",
+  "table_hash": "DWH.DIM_Employees",
+  "isCreated": true,
+  "isFact": false,
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [
+    {
+      "hashkey": "DWH.DIM_Employees.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "sequenceNumber": 1,
+      "table_hash": "STG.Employees",
+      "tableAlias": "T1",
+      "joinHistTypeID": 4,
+      "joinTypeID": 2,
+      "forceJoin": 0,
+      "distinct": false,
+      "isOutput": false,
+      "unionAll": false
+    }
+  ],
+  "iTransformationColumns": [
+    {
+      "hashkey": "DWH.DIM_Employees.Address.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "Address",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Address",
+      "isAggregate": false,
+      "sequenceNumber": 10
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.BirthDate.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "BirthDate",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "BirthDate",
+      "isAggregate": false,
+      "sequenceNumber": 8
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.City.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "City",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "City",
+      "isAggregate": false,
+      "sequenceNumber": 11
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.Country.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "Country",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Country",
+      "isAggregate": false,
+      "sequenceNumber": 14
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.DAT_BIS_HIST.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "DAT_BIS_HIST",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "DAT_BIS_HIST",
+      "isAggregate": false,
+      "defaultValue": "'99991231'",
+      "description": "Employees: End of validity period",
+      "sequenceNumber": 3,
+      "friendlyName": "Employees_ValidTo"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.DAT_VON_HIST.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "DAT_VON_HIST",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "DAT_VON_HIST",
+      "isAggregate": false,
+      "defaultValue": "'19000101'",
+      "description": "Employees: Start of validity period",
+      "sequenceNumber": 2,
+      "friendlyName": "Employees_ValidFrom"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.EmployeeID.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "EmployeeID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "EmployeeID",
+      "isAggregate": false,
+      "sequenceNumber": 21,
+      "pK_Ordinal_Position": 1
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.Extension.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "Extension",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Extension",
+      "isAggregate": false,
+      "sequenceNumber": 16
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.FirstName.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "FirstName",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "FirstName",
+      "isAggregate": false,
+      "sequenceNumber": 5
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.HireDate.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "HireDate",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "HireDate",
+      "isAggregate": false,
+      "sequenceNumber": 9
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.HomePhone.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "HomePhone",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "HomePhone",
+      "isAggregate": false,
+      "sequenceNumber": 15
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.LastName.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "LastName",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "LastName",
+      "isAggregate": false,
+      "sequenceNumber": 4
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.Notes.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "Notes",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Notes",
+      "isAggregate": false,
+      "sequenceNumber": 18
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.Photo.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "Photo",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Photo",
+      "isAggregate": false,
+      "sequenceNumber": 17
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.PhotoPath.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "PhotoPath",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "PhotoPath",
+      "isAggregate": false,
+      "sequenceNumber": 20
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.PostalCode.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "PostalCode",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "PostalCode",
+      "isAggregate": false,
+      "sequenceNumber": 13
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.Region.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "Region",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Region",
+      "isAggregate": false,
+      "sequenceNumber": 12
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.ReportsTo.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "ReportsTo",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "ReportsTo",
+      "isAggregate": false,
+      "sequenceNumber": 19
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.SATZ_ID.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "SATZ_ID",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "SATZ_ID",
+      "statement": "ISNULL(@this, 0)",
+      "isAggregate": false,
+      "defaultValue": "0",
+      "description": "ISNULL([T1].[SATZ_ID], 0)",
+      "sequenceNumber": 1,
+      "friendlyName": "Employees"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.Title.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "Title",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "Title",
+      "isAggregate": false,
+      "sequenceNumber": 6
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.TitleOfCourtesy.1",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "columnName": "TitleOfCourtesy",
+      "transTable_SequenceNumber": 1,
+      "column_ColumnName": "TitleOfCourtesy",
+      "isAggregate": false,
+      "sequenceNumber": 7
+    }
+  ],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [
+    {
+      "hashkey": "DWH.DIM_Employees.Anonymization",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "Anonymization"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.BinaryToStr",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "BinaryToStr"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.HierarchyToString",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "HierarchyToString"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.NumberNULLToZero",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "NumberNULLToZero"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.StringMaxTo8000",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "StringMaxTo8000"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.StringNULLToNA",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "StringNULLToNA"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.TimeToDatetime",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "TimeToDatetime"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.Trim",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "Trim"
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.XmlToString",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "useWithVault": true,
+      "preTrans_hash": "XmlToString"
+    }
+  ],
+  "iTransformationStars": [
+    {
+      "hashkey": "DWH.DIM_Employees.Star.STAR.DIM_Employees",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_Employees",
+      "star_TransformationID_hash": "STAR.DIM_Employees",
+      "isFact": false
+    },
+    {
+      "hashkey": "DWH.DIM_Employees.Star.STAR.DIM_ReportsTo",
+      "hashkeyParent": "DWH.DIM_Employees",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_ReportsTo",
+      "star_TransformationID_hash": "STAR.DIM_ReportsTo",
+      "isFact": false
+    }
+  ],
+  "iTransformationSnapshots": []
+}

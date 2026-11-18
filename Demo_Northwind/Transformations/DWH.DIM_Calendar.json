@@ -1,0 +1,49 @@
+{
+  "hashkey": "DWH.DIM_Calendar",
+  "hashkeyParent": "DWH",
+  "transTypeID": 2,
+  "schema_Name": "DWH",
+  "transformation_Name": "DIM_Calendar",
+  "createDummyEntry": false,
+  "transHistTypeID": 5,
+  "viewDefinition": "CREATE VIEW DWH.DIM_Calendar AS \r\nWITH \r\nS1 (N) AS (SELECT 1 UNION ALL SELECT 2),\r\nS2 (N) AS (SELECT 1 FROM S1, S1 B),\r\nS3 (N) AS (SELECT 1 FROM S2, S2 B),\r\nS4 (N) AS (SELECT 1 FROM S3, S3 B),\r\nS5 (N) AS (SELECT 1 FROM S4, S4 B),\r\nS6 (N) AS (SELECT 1 FROM S5, S5 B),\r\nNums (N) AS (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1)) FROM S6),\r\nDates (SATZ_ID, [Date]) AS\r\n(\r\n\tSELECT N, DATEADD(dd, N - 1, CONVERT(date, '19800101'))\r\n\tFROM Nums\r\n\tWHERE \r\n\tN <= DATEDIFF(dd, '19800101', '20401231') + 1\r\n\tUNION ALL SELECT 0, '19000101'\r\n)\r\nSELECT \r\n\tSATZ_ID,\r\n\t[VeryShortDate] = CONVERT(varchar(5), Date, 101),\r\n\t[ShortDate] = CONVERT(varchar(8), Date, 1),\r\n\t[LongDate] = CONVERT(varchar(10), Date, 101),\r\n\t[Date],\r\n\t[Year] = YEAR([Date]),\r\n\t[Month] = MONTH([Date]),\r\n\t[Day] = DAY([Date]),\r\n\t[Week] = DATEPART(wk, [Date]),\r\n\t[Weekday] = DATEPART(dw, [Date]),\r\n\t[ISO_Week] = DATEPART(isowk, [Date]),\r\n\t[CurrentDate] = CASE WHEN DATEDIFF(dd, Date, GETDATE()) = 0 THEN 1 ELSE 0 END,\r\n\t[CurrentMonth] = CASE WHEN DATEDIFF(mm, Date, GETDATE()) = 0 THEN 1 ELSE 0 END,\r\n\t[PrevMonth] = CASE WHEN DATEDIFF(mm, Date, GETDATE()) = 1 THEN 1 ELSE 0 END,\r\n\t[CurrentYear] = CASE WHEN DATEDIFF(yy, Date, GETDATE()) = 0 THEN 1 ELSE 0 END\r\nFROM \r\n\tDates",
+  "table_hash": "DWH.DIM_Calendar",
+  "isCreated": true,
+  "isFact": false,
+  "createResultTable": false,
+  "isDistinct": false,
+  "specialType": 2,
+  "scriptTran_NoDependencies": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [
+    {
+      "hashkey": "DWH.DIM_Calendar.Star.STAR.DIM_OrderDate",
+      "hashkeyParent": "DWH.DIM_Calendar",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_OrderDate",
+      "star_TransformationID_hash": "STAR.DIM_OrderDate",
+      "isFact": false
+    },
+    {
+      "hashkey": "DWH.DIM_Calendar.Star.STAR.DIM_RequiredDate",
+      "hashkeyParent": "DWH.DIM_Calendar",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_RequiredDate",
+      "star_TransformationID_hash": "STAR.DIM_RequiredDate",
+      "isFact": false
+    },
+    {
+      "hashkey": "DWH.DIM_Calendar.Star.STAR.DIM_ShippedDate",
+      "hashkeyParent": "DWH.DIM_Calendar",
+      "star_hash": "Star",
+      "star_Transformation_Name": "DIM_ShippedDate",
+      "star_TransformationID_hash": "STAR.DIM_ShippedDate",
+      "isFact": false
+    }
+  ],
+  "iTransformationSnapshots": []
+}

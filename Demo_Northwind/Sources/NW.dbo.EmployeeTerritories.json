@@ -1,0 +1,37 @@
+{
+  "hashkey": "NW.dbo.EmployeeTerritories",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "EmployeeTerritories",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.EmployeeTerritories.EmployeeID",
+      "hashkeyParent": "NW.dbo.EmployeeTerritories",
+      "column_Name": "EmployeeID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.EmployeeTerritories.TerritoryID",
+      "hashkeyParent": "NW.dbo.EmployeeTerritories",
+      "column_Name": "TerritoryID",
+      "typeID": 120,
+      "character_Maximum_Length": 20,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 2,
+      "orderNr": 2,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

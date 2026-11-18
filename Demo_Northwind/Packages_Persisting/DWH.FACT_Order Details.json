@@ -1,0 +1,14 @@
+{
+  "hashkey": "DWH.FACT_Order Details",
+  "hashkeyParent": "PERS1",
+  "package_hash": "PERS1",
+  "transformation_hash": "DWH.FACT_Order Details",
+  "updateSnapshots": false,
+  "mode": 4,
+  "usePartSwitch": 2,
+  "updateStatistics": true,
+  "useLogging": true,
+  "incrementColumn_hash": "DWH.FACT_Order Details.FK_Orders",
+  "removeDuplicates": false,
+  "useTransaction": 1
+}

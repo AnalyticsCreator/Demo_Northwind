@@ -1,0 +1,6 @@
+{
+  "hashkey": "DWHWIZARD_DIMNAME",
+  "param_Name": "DWHWIZARD_DIMNAME",
+  "param_Value": "DIM_{SRC_NAME}",
+  "use_existing": 0
+}

@@ -1,0 +1,23 @@
+{
+  "hashkey": "STAR.DIM_Products",
+  "hashkeyParent": "STAR",
+  "transTypeID": 3,
+  "schema_Name": "STAR",
+  "transformation_Name": "DIM_Products",
+  "createDummyEntry": false,
+  "transHistTypeID": 1,
+  "viewDefinition": "CREATE VIEW [STAR].[DIM_Products] AS\r\nSELECT\r\n\tT1.[SATZ_ID],\r\n\tT1.[DAT_VON_HIST],\r\n\tT1.[DAT_BIS_HIST],\r\n\tT1.[ProductName],\r\n\tT1.[SupplierID],\r\n\tT1.[CategoryID],\r\n\tT1.[QuantityPerUnit],\r\n\tT1.[UnitPrice],\r\n\tT1.[UnitsInStock],\r\n\tT1.[UnitsOnOrder],\r\n\tT1.[ReorderLevel],\r\n\tT1.[Discontinued],\r\n\tT1.[ProductID]\r\nFROM\r\n\t[DWH].[DIM_Products] T1",
+  "table_hash": "STAR.DIM_Products",
+  "isCreated": true,
+  "isFact": false,
+  "parentTrans_hash": "DWH.DIM_Products",
+  "createResultTable": false,
+  "isDistinct": false,
+  "use_existing": 0,
+  "iTransformationTables": [],
+  "iTransformationColumns": [],
+  "iTransformationReferences": [],
+  "iTransformationStandards": [],
+  "iTransformationStars": [],
+  "iTransformationSnapshots": []
+}

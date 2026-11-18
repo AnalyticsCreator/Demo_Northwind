@@ -1,0 +1,7 @@
+{
+  "hashkey": "DWH.SalesForecast",
+  "hashkeyParent": "SCRIPT_Forecast",
+  "package_hash": "SCRIPT_Forecast",
+  "transformation_hash": "DWH.SalesForecast",
+  "table_hash": "DWH.SalesForecast"
+}

@@ -1,0 +1,7 @@
+{
+  "hashkey": "TestMacro",
+  "macroName": "TestMacro",
+  "languageID": 2,
+  "statement": "CASE :1 WHEN 1 THEN :2 ELSE :3 END",
+  "use_existing": 0
+}

@@ -1,0 +1,7 @@
+{
+  "hashkey": "Trim",
+  "name": "Trim",
+  "checkStatement": "SrcType IN ('varchar', 'nvarchar')",
+  "transStatement": "'RTRIM(LTRIM(' + Column_Name + '))'",
+  "use_existing": 0
+}

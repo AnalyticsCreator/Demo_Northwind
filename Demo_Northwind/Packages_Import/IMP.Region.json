@@ -1,0 +1,23 @@
+{
+  "hashkey": "IMP.Region",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.Region",
+  "source_hash": "NW.dbo.Region",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.Region.RegionDescription.RegionDescription",
+      "hashkeyParent": "IMP.Region",
+      "source_column_name": "RegionDescription",
+      "table_column_name": "RegionDescription"
+    },
+    {
+      "hashkey": "IMP.Region.RegionID.RegionID",
+      "hashkeyParent": "IMP.Region",
+      "source_column_name": "RegionID",
+      "table_column_name": "RegionID"
+    }
+  ]
+}

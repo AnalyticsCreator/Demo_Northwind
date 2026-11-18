@@ -1,0 +1,150 @@
+{
+  "hashkey": "NW.dbo.Orders",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "Orders",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.Orders.CustomerID",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "CustomerID",
+      "typeID": 117,
+      "character_Maximum_Length": 5,
+      "is_Nullable": true,
+      "orderNr": 2,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.EmployeeID",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "EmployeeID",
+      "typeID": 115,
+      "is_Nullable": true,
+      "orderNr": 3,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.Freight",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "Freight",
+      "typeID": 116,
+      "is_Nullable": true,
+      "orderNr": 8,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.OrderDate",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "OrderDate",
+      "typeID": 106,
+      "is_Nullable": true,
+      "orderNr": 4,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.OrderID",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "OrderID",
+      "typeID": 115,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.RequiredDate",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "RequiredDate",
+      "typeID": 106,
+      "is_Nullable": true,
+      "orderNr": 5,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.ShipAddress",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "ShipAddress",
+      "typeID": 120,
+      "character_Maximum_Length": 60,
+      "is_Nullable": true,
+      "orderNr": 10,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.ShipCity",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "ShipCity",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 11,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.ShipCountry",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "ShipCountry",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 14,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.ShipName",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "ShipName",
+      "typeID": 120,
+      "character_Maximum_Length": 40,
+      "is_Nullable": true,
+      "orderNr": 9,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.ShipPostalCode",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "ShipPostalCode",
+      "typeID": 120,
+      "character_Maximum_Length": 10,
+      "is_Nullable": true,
+      "orderNr": 13,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.ShipRegion",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "ShipRegion",
+      "typeID": 120,
+      "character_Maximum_Length": 15,
+      "is_Nullable": true,
+      "orderNr": 12,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.ShipVia",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "ShipVia",
+      "typeID": 115,
+      "is_Nullable": true,
+      "orderNr": 7,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.Orders.ShippedDate",
+      "hashkeyParent": "NW.dbo.Orders",
+      "column_Name": "ShippedDate",
+      "typeID": 106,
+      "is_Nullable": true,
+      "orderNr": 6,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

@@ -1,0 +1,23 @@
+{
+  "hashkey": "IMP.CustomerDemographics",
+  "hashkeyParent": "IMP_NW1",
+  "table_hash": "IMP.CustomerDemographics",
+  "source_hash": "NW.dbo.CustomerDemographics",
+  "updateStatistics": true,
+  "useLogging": true,
+  "useVariable": false,
+  "iImpColumnReferences": [
+    {
+      "hashkey": "IMP.CustomerDemographics.CustomerDesc.CustomerDesc",
+      "hashkeyParent": "IMP.CustomerDemographics",
+      "source_column_name": "CustomerDesc",
+      "table_column_name": "CustomerDesc"
+    },
+    {
+      "hashkey": "IMP.CustomerDemographics.CustomerTypeID.CustomerTypeID",
+      "hashkeyParent": "IMP.CustomerDemographics",
+      "source_column_name": "CustomerTypeID",
+      "table_column_name": "CustomerTypeID"
+    }
+  ]
+}

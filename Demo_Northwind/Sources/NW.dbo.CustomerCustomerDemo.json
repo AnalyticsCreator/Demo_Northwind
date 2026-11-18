@@ -1,0 +1,38 @@
+{
+  "hashkey": "NW.dbo.CustomerCustomerDemo",
+  "hashkeyParent": "NW",
+  "sourceTypeID": 1,
+  "source_Schema": "dbo",
+  "source_Name": "CustomerCustomerDemo",
+  "saP_DQ_Transfer": "T",
+  "saP_DQ_AutoSync": false,
+  "saP_ODP_SupportDelta": false,
+  "saP_ODP_SupportFull": false,
+  "oDataType": 1,
+  "use_existing": 0,
+  "iSourceColumns": [
+    {
+      "hashkey": "NW.dbo.CustomerCustomerDemo.CustomerID",
+      "hashkeyParent": "NW.dbo.CustomerCustomerDemo",
+      "column_Name": "CustomerID",
+      "typeID": 117,
+      "character_Maximum_Length": 5,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 1,
+      "orderNr": 1,
+      "anonymize": 0
+    },
+    {
+      "hashkey": "NW.dbo.CustomerCustomerDemo.CustomerTypeID",
+      "hashkeyParent": "NW.dbo.CustomerCustomerDemo",
+      "column_Name": "CustomerTypeID",
+      "typeID": 117,
+      "character_Maximum_Length": 10,
+      "is_Nullable": false,
+      "pK_Ordinal_Position": 2,
+      "orderNr": 2,
+      "anonymize": 0
+    }
+  ],
+  "iSourceConstraints": []
+}

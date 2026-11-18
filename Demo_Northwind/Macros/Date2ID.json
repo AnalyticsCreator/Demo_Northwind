@@ -1,0 +1,8 @@
+{
+  "hashkey": "Date2ID",
+  "macroName": "Date2ID",
+  "languageID": 2,
+  "statement": "CASE\r\n    WHEN :1 < '19800101' THEN 0 \r\n    WHEN :1 > '20401231' THEN CONVERT(bigint, DATEDIFF(DD, '19800101',  '20401231') + 1)\r\n    ELSE CONVERT(bigint, ISNULL(DATEDIFF(DD, '19800101', CONVERT(date, :1)) + 1, 0))\r\nEND",
+  "table_hash": "DWH.DIM_Calendar",
+  "use_existing": 0
+}
