@@ -12,6 +12,7 @@
   "isFact": false,
   "createResultTable": false,
   "isDistinct": false,
+  "scriptTran_NoDependencies": false,
   "use_existing": 0,
   "iTransformationTables": [
     {
@@ -115,7 +116,8 @@
       "transTable_SequenceNumber": 1,
       "column_ColumnName": "FirstName",
       "isAggregate": false,
-      "sequenceNumber": 5
+      "sequenceNumber": 5,
+      "friendlyName": "Test"
     },
     {
       "hashkey": "DWH.DIM_Employees.HireDate.1",
