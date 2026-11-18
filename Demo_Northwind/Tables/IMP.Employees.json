@@ -270,6 +270,7 @@
       "character_Maximum_Length": 30,
       "is_Nullable": true,
       "toOLAP": 0,
+      "default": "'Test'",
       "isCalculated": false,
       "isPersisted": false,
       "isIdentity": false,

@@ -150,6 +150,7 @@
       "typeID": 120,
       "character_Maximum_Length": 10,
       "is_Nullable": true,
+      "friendlyName": "Test",
       "toOLAP": 0,
       "isCalculated": false,
       "isPersisted": false,
