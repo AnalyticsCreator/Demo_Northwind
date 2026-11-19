@@ -6,12 +6,13 @@
   "transformation_Name": "DIM_Categories",
   "createDummyEntry": true,
   "transHistTypeID": 1,
-  "viewDefinition": "CREATE VIEW [DWH].[DIM_Categories] AS\r\nSELECT\r\n\t[SATZ_ID] = ISNULL([T1].[SATZ_ID], 0),\r\n\t[DAT_VON_HIST] = [T1].[DAT_VON_HIST],\r\n\t[DAT_BIS_HIST] = [T1].[DAT_BIS_HIST],\r\n\t[CategoryName] = RTRIM(LTRIM(ISNULL([T1].[CategoryName], 'N.A.'))),\r\n\t[Description] = [T1].[Description],\r\n\t[Picture] = [T1].[Picture],\r\n\t[CategoryID] = ISNULL([T1].[CategoryID], 0)\r\nFROM\r\n\t[STG].[Categories] T1 (NOLOCK)\r\nWHERE\r\n\t1 = 1\r\nUNION ALL SELECT \r\n\t[SATZ_ID] = 0,\r\n\t[DAT_VON_HIST] = '19000101',\r\n\t[DAT_BIS_HIST] = '99991231',\r\n\t[CategoryName] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[Description] = NULL,\r\n\t[Picture] = NULL,\r\n\t[CategoryID] = ISNULL(NULL, 0)",
+  "viewDefinition": "CREATE VIEW [DWH].[DIM_Categories] AS\r\nSELECT\r\n\t[SATZ_ID] = ISNULL([T1].[SATZ_ID], 0),\r\n\t[DAT_VON_HIST] = [T1].[DAT_VON_HIST],\r\n\t[DAT_BIS_HIST] = [T1].[DAT_BIS_HIST],\r\n\t[CategoryName] = RTRIM(LTRIM(ISNULL([T1].[CategoryName], 'N.A.'))),\r\n\t[Description] = [T1].[Description],\r\n\t[Picture] = [T1].[Picture],\r\n\t[CategoryID] = ISNULL([T1].[CategoryID], 0)\r\nFROM\r\n\t[STG].[Categories] [T1] (NOLOCK)\r\nWHERE\r\n\t1 = 1\r\nUNION ALL SELECT \r\n\t[SATZ_ID] = 0,\r\n\t[DAT_VON_HIST] = '19000101',\r\n\t[DAT_BIS_HIST] = '99991231',\r\n\t[CategoryName] = RTRIM(LTRIM(ISNULL(NULL, 'N.A.'))),\r\n\t[Description] = NULL,\r\n\t[Picture] = NULL,\r\n\t[CategoryID] = ISNULL(NULL, 0)",
   "table_hash": "DWH.DIM_Categories",
   "isCreated": true,
   "isFact": false,
   "createResultTable": false,
   "isDistinct": false,
+  "scriptTran_NoDependencies": false,
   "use_existing": 0,
   "iTransformationTables": [
     {
@@ -79,7 +80,8 @@
       "transTable_SequenceNumber": 1,
       "column_ColumnName": "Description",
       "isAggregate": false,
-      "sequenceNumber": 5
+      "sequenceNumber": 5,
+      "friendlyName": "Category description"
     },
     {
       "hashkey": "DWH.DIM_Categories.Picture.1",

@@ -103,7 +103,7 @@
       "typeID": 114,
       "character_Maximum_Length": 2147483647,
       "is_Nullable": true,
-      "toOLAP": 0,
+      "toOLAP": 2,
       "isCalculated": false,
       "isPersisted": false,
       "isIdentity": false,
