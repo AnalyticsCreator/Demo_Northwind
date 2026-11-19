@@ -364,6 +364,16 @@
       "use_existing": 0
     },
     {
+      "hashkey": "STAR.FACT_Order Details..Discount.Sum of Discount (FACT_Order Details)",
+      "hashkeyParent": "STAR.FACT_Order Details",
+      "name": "{AggregationName} of {ColumnName} ({TableName})",
+      "aggregateID": 2,
+      "olaP_DisplayFolder": "Measures",
+      "isHidden": false,
+      "column_Name": "Discount",
+      "use_existing": 0
+    },
+    {
       "hashkey": "STAR.FACT_Order Details..FK_Customers.DistinctCount of Customers (FACT_Order Details)",
       "hashkeyParent": "STAR.FACT_Order Details",
       "name": "{AggregationName} of {ColumnName} ({TableName})",
